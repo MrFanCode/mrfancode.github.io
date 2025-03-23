@@ -2,7 +2,6 @@
 `23-03-2025`
 
 
-![logo](/images/test.jpg)
 
 
 # Blog Setup with hugo in Ubuntu (Linux)
@@ -21,12 +20,12 @@
 - Then check the version if you have download it correctly by typing `hugo version`
 - Then do some initial works such as down below:
 
-	### First run this to initialize an site dirrectory
-	-  `hugo new site example` (this is to initialize the site dirrectory)
-	-  `cd example` (this command will change dirrectory into the exmple dirrectory)
+	### First run this to initialize an site directory
+	-  `hugo new site example` (this is to initialize the site directory)
+	-  `cd example` (this command will change directory into the exmple directory)
 	### Secondly, Initialize an empty Git repository in the current directory.
 	- `git init`
-	### Then, add an theme into the site dirrecotry, example:
+	### Then, add an theme into the site directory, example:
 	- `git submodule add -f https://github.com/panr/hugo-theme-terminal.git themes/terminal`
 	- `for more themes option go to:` 
 	[Complete List | Hugo Themes](https://themes.gohugo.io)
@@ -170,7 +169,7 @@ pagination.pagerSize = 5
 `hugo server`
 or run this if you want to run the site outside from your localhost
 `hugo server --bind 0.0.0.0`
-- check if the site is running without any problem in your browser
+- check if the site is running without any problem in your browser by searching for http://`your IPv4 address`:1313
 
 ## Now to add some content:
 - Create an .md file in `content/` folder. Example(index.md).

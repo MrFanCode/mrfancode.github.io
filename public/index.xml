@@ -8,6 +8,16 @@
     <language>en-us</language><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
+      <link>/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>ABOUT I&amp;rsquo;m Irfan.
+I am just an young student who started programming at the age of 14 I started with html,css,js Now in 2025 I learned Linux, Python, C++, Bash Scripts I also done some CTF challenges on HackTheBox, TryHackMe, PicoCTF, OverTheWire, CTFLearn To be honest I have never got my computer science subject in high school or follow any paid course. I just learn all of this, by my own Just through the open source information in the internet</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>/posts/blogsetup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       

@@ -54,7 +54,7 @@ Getting started   Install hugo from the official website. Download from here
   <link rel="stylesheet" href="/css/syntax.min.a0773cce9310cb6d8ed23e50f005448facf29a53001b57e038828daa466b25c0.css">
 
   
-  <link rel="stylesheet" href="/css/terminal.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+  <link rel="stylesheet" href="/css/terminal.min.2c71d30f0e958b3ea1b6f58975fca38c7fedb7fb95adface3b6f8d00e85ba3e8.css">
 
   
   <link rel="stylesheet" href="/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
@@ -181,7 +181,6 @@ Getting started   Install hugo from the official website. Download from here
 
   <div class="post-content"><div>
         <p><code>23-03-2025</code></p>
-<p><img src="/images/test.jpg" alt="logo"></p>
 <h1 id="blog-setup-with-hugo-in-ubuntu-linux">Blog Setup with hugo in Ubuntu (Linux)<a href="#blog-setup-with-hugo-in-ubuntu-linux" class="hanchor" ariaLabel="Anchor">#</a> </h1>
 <h3 id="from-mark-down-md-file-into-website">From Mark Down (.md) file into website<a href="#from-mark-down-md-file-into-website" class="hanchor" ariaLabel="Anchor">#</a> </h3>
 <h3 id="required-to-be-installed">Required to be installed<a href="#required-to-be-installed" class="hanchor" ariaLabel="Anchor">#</a> </h3>
@@ -199,17 +198,17 @@ Getting started   Install hugo from the official website. Download from here
 <p>Then check the version if you have download it correctly by typing <code>hugo version</code></p>
 </li>
 <li>
-<p>Then do some initial works such down below:</p>
-<h3 id="first-run-this-to-initialize-an-site-dirrectory">First run this to initialize an site dirrectory<a href="#first-run-this-to-initialize-an-site-dirrectory" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>Then do some initial works such as down below:</p>
+<h3 id="first-run-this-to-initialize-an-site-directory">First run this to initialize an site directory<a href="#first-run-this-to-initialize-an-site-directory" class="hanchor" ariaLabel="Anchor">#</a> </h3>
 <ul>
-<li><code>hugo new site example</code> (this is to initialize the site dirrectory)</li>
-<li><code>cd example</code> (this command will change dirrectory into the exmple dirrectory)</li>
+<li><code>hugo new site example</code> (this is to initialize the site directory)</li>
+<li><code>cd example</code> (this command will change directory into the exmple directory)</li>
 </ul>
 <h3 id="secondly-initialize-an-empty-git-repository-in-the-current-directory">Secondly, Initialize an empty Git repository in the current directory.<a href="#secondly-initialize-an-empty-git-repository-in-the-current-directory" class="hanchor" ariaLabel="Anchor">#</a> </h3>
 <ul>
 <li><code>git init</code></li>
 </ul>
-<h3 id="then-add-an-theme-into-the-site-dirrecotry-example">Then, add an theme into the site dirrecotry, example:<a href="#then-add-an-theme-into-the-site-dirrecotry-example" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<h3 id="then-add-an-theme-into-the-site-directory-example">Then, add an theme into the site directory, example:<a href="#then-add-an-theme-into-the-site-directory-example" class="hanchor" ariaLabel="Anchor">#</a> </h3>
 <ul>
 <li><code>git submodule add -f https://github.com/panr/hugo-theme-terminal.git themes/terminal</code></li>
 <li><code>for more themes option go to:</code>
@@ -354,7 +353,7 @@ Getting started   Install hugo from the official website. Download from here
 or run this if you want to run the site outside from your localhost
 <code>hugo server --bind 0.0.0.0</code></p>
 <ul>
-<li>check if the site is running without any problem in your browser</li>
+<li>check if the site is running without any problem in your browser by searching for http://<code>your IPv4 address</code>:1313</li>
 </ul>
 <h2 id="now-to-add-some-content">Now to add some content:<a href="#now-to-add-some-content" class="hanchor" ariaLabel="Anchor">#</a> </h2>
 <ul>
