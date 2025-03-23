@@ -19,7 +19,7 @@
 # Getting started
 - Install hugo from the official website. [Download from here](https://github.com/gohugoio/hugo/releases/latest)
 - Then check the version if you have download it correctly by typing `hugo version`
-- Then do some initial works such down below:
+- Then do some initial works such as down below:
 
 	### First run this to initialize an site dirrectory
 	-  `hugo new site example` (this is to initialize the site dirrectory)
