@@ -1,26 +1,14 @@
-
 # ABOUT
 
-I'm Irfan.
+I'm Irfan,
+
+I am just a young student who started programming at the age of 14. I started with HTML, CSS, and JS. Now in 2025, I learned Linux, Python, C++, and Bash script. I have also done some CTF challenges on HackTheBox, TryHackMe, PicoCTF, OverTheWire, and CTFLearn.
 
 
-I am just an young student who started programming at the age of 14
-I started with html,css,js
-Now in 2025 I learned Linux, Python, C++, Bash Scripts
-I also done some CTF challenges on HackTheBox, TryHackMe, PicoCTF, OverTheWire, CTFLearn
+I have never taken my computer science subject in high school or followed any paid course. 
+I just learned all of this on my own just through the open-source information on the internet.
 
-`
-To be honest I have never got my computer science subject in high school or follow any paid course.
-I just learn all of this, by my own
-Just through the open source information in the internet
-`
 
 #### The purpose of this blog
-I would like to document everything that I do in the IT field, 
-for example my coding projects, any automation I found interesting from online,
-CyberSecurity related tips and tricks that I found amazing,
-CTF chalenges that I solve, but mostly I would refer to some hint online for learning purpose so
-I will leave the source on the post if I refered anything from online.
 
-
-
+I would like to keep a record of everything I do in the IT industry, such as my coding projects, any automation I find fascinating online, cybersecurity-related tips and tricks I find incredible, and CTF challenges I solve. However, I would primarily use some online hints for learning purposes, so if I identify anything from the internet, I will acknowledge the page.
