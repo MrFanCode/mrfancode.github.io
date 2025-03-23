@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on MrFCode Blog</title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on MrFCode Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>/posts/blogsetup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/blogsetup/</guid>
+      <description>23-03-2025
+Blog Setup with hugo in Ubuntu (Linux) From Mark Down (.md) file into website Required to be installed  Go, Git, DartSass  First open terminal &amp;amp; Install git and go sudo apt update &amp;amp;&amp;amp; sudo apt install git golang-go -y
+Getting started   Install hugo from the official website. Download from here
+  Then check the version if you have download it correctly by typing hugo version</description>
+    </item>
+    
+  </channel>
+</rss>

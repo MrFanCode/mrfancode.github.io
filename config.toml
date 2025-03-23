@@ -109,3 +109,13 @@ pagination.pagerSize = 5
 [caches]
    [caches.images]
       dir = ':cacheDir/images'
+
+
+[[module.mount]]
+source = 'static'
+target = 'static'
+
+[[module.mounts]]
+source = 'images'
+target = 'static/images'
+

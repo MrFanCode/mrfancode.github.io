@@ -1,6 +1,10 @@
 
 `23-03-2025`
 
+
+![logo](/images/test.jpg)
+
+
 # Blog Setup with hugo in Ubuntu (Linux)
 ### From Mark Down (.md) file into website
 
