@@ -180,6 +180,9 @@ or run this if you want to run the site outside from your localhost
 - in the index.md you can put your contents.
 
 
+### Thats how you install and use hugo 
+- if interested in hosting it in github pages checkout the official guide
+[Host on Github Pages](https://gohugo.io/host-and-deploy/host-on-github-pages/)
 
 
 
