@@ -36,8 +36,20 @@ Getting started   Install hugo from the official website. Download from here
       
       <guid>/posts/ctf/thm/silverplatter/</guid>
       <description>CTF Silver Platter - TryHackMe 24-03-2025
-Starting with nmap  scanning target to identify open ports  $sudo nmap -T5 -Pn -oN nmap/init 10.10.126.96
+Starting with nmap  Scanning the target to identify open ports  $sudo nmap -T5 -Pn -oN nmap/init 10.10.126.96
 # Nmap 7.94SVN scan initiated Mon Mar 24 06:40:27 2025 as: nmap -T5 -Pn -oN nmap/init 10.10.126.96 Warning: 10.10.126.96 giving up on port because retransmission cap hit (2). Nmap scan report for 10.10.126.96 Host is up (0.21s latency). Not shown: 997 closed tcp ports (reset) PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 8080/tcp open http-proxy # Nmap done at Mon Mar 24 06:40:40 2025 -- 1 IP address (1 host up) scanned in 12.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/posts/docker101/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/docker101/</guid>
+      <description>How to run Linux using Docker 2025-03-24
+Install docker on your linux ( For windows users can follow along with WSL (Windows Subsystem for Linux). ) sudo apt update &amp;amp;&amp;amp; sudo install docker.io -y
+Then install an linux image by using this command: ( Search More Images ) sudo docker pull ubuntu:latest
+ make sure use the &amp;lsquo;:latest&amp;rsquo; in the end of image name so you get the latest version then just wait for the installation to finish.</description>
     </item>
     
   </channel>

