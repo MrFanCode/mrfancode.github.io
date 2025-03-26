@@ -1,4 +1,4 @@
-# CTF
+# [CTF](https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)) challenge solved.
 
 # Silver Platter - TryHackMe
 
