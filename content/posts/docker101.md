@@ -1,6 +1,6 @@
 # How to run Linux using Docker
 
-`2025-03-24`
+`24-03-2025`
 
 
 ## Install docker on your linux ( For windows users can follow along with WSL (Windows Subsystem for Linux). )
@@ -20,7 +20,7 @@
 
 - this will list the images that installed on your computer
 
-## Now your can run the image as an container:
+## Now you can run the image as a container:
 
 `docker run -it --name example --host example ubuntu:latest`
 
@@ -29,7 +29,7 @@
   - run = to create and run a new container
   - -it = interactive ( so you can get an interactive terminal/command line interface )
   - --name = setting a name for your container that will be usefull in future when you want to stop or start the container
-  - --host to set an hostname inside your container
+  - --host = to set an hostname inside your container
   - ubuntu:latest = is the image name that you want to run
 
 
