@@ -2,7 +2,7 @@
 
 I'm Irfan,
 
-When I was 14 years old, I began programming. I began with JS, CSS, and HTML. I gained knowledge in Bash script, Python, C++, and Linux. Additionally, I did CTF challenges on CTFLearn, TryHackMe, PicoCTF, HackTheBox, and OverTheWire.
+When I was 14 years old, I began programming. I began with JS, CSS, and HTML. I gained knowledge in Bash script, Python, C++, Linux, Reverse Engineering Software, Digital Forensics, and Cryptography. Additionally, I also like to solve CTF challenges on CTFLearn, TryHackMe, PicoCTF, HackTheBox, and OverTheWire.
 
 I just learned all of this on my own just through the open-source/publicly available information on the internet.
 
