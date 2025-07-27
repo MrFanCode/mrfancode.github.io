@@ -2,44 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on MrFCode Blog</title>
-    <link>/posts/</link>
+    <link>//localhost:1313/posts/</link>
     <description>Recent content in Posts on MrFCode Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>/posts/blogsetup/</link>
+      <link>//localhost:1313/posts/blogsetup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/blogsetup/</guid>
-      <description>23-03-2025
-Blog Setup with hugo in Ubuntu (Linux) From Mark Down (.md) file into website Required to be installed  Go, Git, DartSass  First open terminal &amp;amp; Install git and go sudo apt update &amp;amp;&amp;amp; sudo apt install git golang-go -y
-Getting started   Install hugo from the official website. Download from here
-  Then check the version if you have download it correctly by typing hugo version</description>
+      <guid>//localhost:1313/posts/blogsetup/</guid>
+      <description>&lt;p&gt;&lt;code&gt;23-03-2025&lt;/code&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;blog-setup-with-hugo-in-ubuntu-linux&#34;&gt;Blog Setup with hugo in Ubuntu (Linux)&lt;/h1&gt;&#xA;&lt;h3 id=&#34;from-mark-down-md-file-into-website&#34;&gt;From Mark Down (.md) file into website&lt;/h3&gt;&#xA;&lt;h3 id=&#34;required-to-be-installed&#34;&gt;Required to be installed&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;Go, Git, DartSass&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;first-open-terminal--install-git-and-go&#34;&gt;First open terminal &amp;amp; Install git and go&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;sudo apt update &amp;amp;&amp;amp; sudo apt install git golang-go -y&lt;/code&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;getting-started&#34;&gt;Getting started&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Install hugo from the official website. &lt;a href=&#34;https://github.com/gohugoio/hugo/releases/latest&#34;&gt;Download from here&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Then check the version if you have download it correctly by typing &lt;code&gt;hugo version&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Then do some initial works such as down below:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title></title>
-      <link>/posts/ctf/thm/silverplatter/</link>
+      <link>//localhost:1313/posts/ctf/thm/silverplatter/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/ctf/thm/silverplatter/</guid>
-      <description>CTF challenge solved. Silver Platter - TryHackMe 24-03-2025
-Starting with nmap  Scanning the target to identify open ports  $sudo nmap -T5 -Pn -oN nmap/init 10.10.126.96
-# Nmap 7.94SVN scan initiated Mon Mar 24 06:40:27 2025 as: nmap -T5 -Pn -oN nmap/init 10.10.126.96 Warning: 10.10.126.96 giving up on port because retransmission cap hit (2). Nmap scan report for 10.10.126.96 Host is up (0.21s latency). Not shown: 997 closed tcp ports (reset) PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 8080/tcp open http-proxy # Nmap done at Mon Mar 24 06:40:40 2025 -- 1 IP address (1 host up) scanned in 12.</description>
+      <guid>//localhost:1313/posts/ctf/thm/silverplatter/</guid>
+      <description>&lt;h1 id=&#34;ctf-challenge-solved&#34;&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Capture_the_flag_%28cybersecurity%29&#34;&gt;CTF&lt;/a&gt; challenge solved.&lt;/h1&gt;&#xA;&lt;h1 id=&#34;silver-platter---tryhackme&#34;&gt;Silver Platter - TryHackMe&lt;/h1&gt;&#xA;&lt;p&gt;24-03-2025&lt;/p&gt;&#xA;&lt;h2 id=&#34;starting-with-nmap&#34;&gt;Starting with nmap&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Scanning the target to identify open ports&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;code&gt;$sudo nmap -T5 -Pn -oN nmap/init 10.10.126.96&lt;/code&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-output&#34; data-lang=&#34;output&#34;&gt;# Nmap 7.94SVN scan initiated Mon Mar 24 06:40:27 2025 as: nmap -T5 -Pn -oN nmap/init 10.10.126.96&#xA;Warning: 10.10.126.96 giving up on port because retransmission cap hit (2).&#xA;Nmap scan report for 10.10.126.96&#xA;Host is up (0.21s latency).&#xA;Not shown: 997 closed tcp ports (reset)&#xA;PORT     STATE SERVICE&#xA;22/tcp   open  ssh&#xA;80/tcp   open  http&#xA;8080/tcp open  http-proxy&#xA;&#xA;# Nmap done at Mon Mar 24 06:40:40 2025 -- 1 IP address (1 host up) scanned in 12.61 seconds&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;&#xA;&lt;li&gt;We have port 22/tcp,80/tcp and 8080/tcp open.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;scanning-more-in-depth-on-the-target&#34;&gt;Scanning more in-depth on the target&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;$sudo nmap -sVC -Pn -T5 -p 80,22,8080 -oN nmap/deep 10.10.126.96&lt;/code&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title></title>
-      <link>/posts/docker101/</link>
+      <link>//localhost:1313/posts/docker101/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/docker101/</guid>
-      <description>How to run Linux using Docker 2025-03-24
-Install docker on your linux ( For windows users can follow along with WSL (Windows Subsystem for Linux). ) sudo apt update &amp;amp;&amp;amp; sudo install docker.io -y
-Then install an linux image by using this command: ( Search More Images ) sudo docker pull ubuntu:latest
- make sure use the &amp;lsquo;:latest&amp;rsquo; in the end of image name so you get the latest version then just wait for the installation to finish.</description>
+      <guid>//localhost:1313/posts/docker101/</guid>
+      <description>&lt;h1 id=&#34;how-to-run-linux-using-docker&#34;&gt;How to run Linux using Docker&lt;/h1&gt;&#xA;&lt;p&gt;&lt;code&gt;24-03-2025&lt;/code&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;install-docker-on-your-linux--for-windows-users-can-follow-along-with-wsl-windows-subsystem-for-linux-&#34;&gt;Install docker on your linux ( For windows users can follow along with WSL (Windows Subsystem for Linux). )&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;sudo apt update &amp;amp;&amp;amp; sudo install docker.io -y&lt;/code&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;then-install-an-linux-image-by-using-this-command--search-more-images-&#34;&gt;Then install an linux image by using this command: ( &lt;a href=&#34;hub.docker.com&#34;&gt;Search More Images&lt;/a&gt; )&lt;/h3&gt;&#xA;&lt;p&gt;&lt;code&gt;sudo docker pull ubuntu:latest&lt;/code&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;make sure use the &amp;lsquo;:latest&amp;rsquo; in the end of image name so you get the latest version&lt;/li&gt;&#xA;&lt;li&gt;then just wait for the installation to finish.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;after-installed-the-image-try-to-confirm-if-the-image-is-there-in-your-system&#34;&gt;After installed the image try to confirm if the image is there in your system:&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;sudo docker images&lt;/code&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
