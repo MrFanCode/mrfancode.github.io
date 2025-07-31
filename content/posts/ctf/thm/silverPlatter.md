@@ -249,7 +249,7 @@ With this we can SSH into the server.
 
 #### using the SSH credential:
 - tim
-- c4ca4238a0b923820dcc509a6f75849b
+- cm0nt!md0ntf0rg3tth!spa$$w0rdagainlol 
 
 `ssh tim@10.10.126.96`
 

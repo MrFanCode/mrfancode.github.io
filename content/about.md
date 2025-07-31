@@ -2,9 +2,9 @@
 
 I'm Irfan,
 
-When I was 14 years old, I began programming. I began with JS, CSS, and HTML. I gained knowledge in Bash script, Python, C++, Linux, Digital Forensics, and Cryptography. Additionally, I also like to solve CTF challenges on CTFLearn, TryHackMe, PicoCTF, HackTheBox, and OverTheWire.
+I began programming at the age of 14. I began with HTML, CSS, and JavaScript. I gained knowledge in Bash Script, Python, C++, Linux, Digital Forensics, and Cryptography. Additionally, I also like to solve CTF challenges on CTFLearn, TryHackMe, PicoCTF, HackTheBox, and OverTheWire.
 
-I just learned all of this on my own just through the open-source/publicly available information on the internet.
+I just learned through the open-source/publicly available information on the internet.
 
 
 #### The purpose of this blog
@@ -14,3 +14,5 @@ I would like to keep a record of everything I do in the IT industry, such as my 
 
 ##### Feel free to look me up on other platforms.
 [Github](https://github.com/MrFanCode) - [TryHackMe](https://tryhackme.com/p/MrFanCode) - [picoCTF](https://play.picoctf.org/users/celestial5930)
+
+
