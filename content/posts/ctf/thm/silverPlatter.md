@@ -223,7 +223,7 @@ https://rhinosecuritylabs.com/research/silverpeas-file-read-cves/
 - CVE-2023-47326
 - CVE-2023-47327
 
-## This one seems interesting: CVE-2023-323. 
+## This one seems interesting: CVE-2023-47323. 
 - Broken access control allows attackers to read all messages.
 ```proof-of-concept exploit
 
