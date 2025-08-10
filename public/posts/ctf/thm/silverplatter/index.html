@@ -6,7 +6,8 @@
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="CTF challenge solved. Silver Platter - TryHackMe 24-03-2025
+<meta name="description" content="Silver Platter - TryHackMe 24-03-2025
+CTF challenge solved.
 Starting with nmap Scanning the target to identify open ports $sudo nmap -T5 -Pn -oN nmap/init 10.10.126.96
 # Nmap 7.94SVN scan initiated Mon Mar 24 06:40:27 2025 as: nmap -T5 -Pn -oN nmap/init 10.10.126.96 Warning: 10.10.126.96 giving up on port because retransmission cap hit (2). Nmap scan report for 10.10.126.96 Host is up (0.21s latency). Not shown: 997 closed tcp ports (reset) PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 8080/tcp open http-proxy # Nmap done at Mon Mar 24 06:40:40 2025 -- 1 IP address (1 host up) scanned in 12.61 seconds We have port 22/tcp,80/tcp and 8080/tcp open. Scanning more in-depth on the target $sudo nmap -sVC -Pn -T5 -p 80,22,8080 -oN nmap/deep 10.10.126.96
 " />
@@ -81,7 +82,8 @@ Starting with nmap Scanning the target to identify open ports $sudo nmap -T5 -Pn
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="">
-<meta property="og:description" content="CTF challenge solved. Silver Platter - TryHackMe 24-03-2025
+<meta property="og:description" content="Silver Platter - TryHackMe 24-03-2025
+CTF challenge solved.
 Starting with nmap Scanning the target to identify open ports $sudo nmap -T5 -Pn -oN nmap/init 10.10.126.96
 # Nmap 7.94SVN scan initiated Mon Mar 24 06:40:27 2025 as: nmap -T5 -Pn -oN nmap/init 10.10.126.96 Warning: 10.10.126.96 giving up on port because retransmission cap hit (2). Nmap scan report for 10.10.126.96 Host is up (0.21s latency). Not shown: 997 closed tcp ports (reset) PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 8080/tcp open http-proxy # Nmap done at Mon Mar 24 06:40:40 2025 -- 1 IP address (1 host up) scanned in 12.61 seconds We have port 22/tcp,80/tcp and 8080/tcp open. Scanning more in-depth on the target $sudo nmap -sVC -Pn -T5 -p 80,22,8080 -oN nmap/deep 10.10.126.96
 " />
@@ -180,9 +182,9 @@ Starting with nmap Scanning the target to identify open ports $sudo nmap -T5 -Pn
   
 
   <div class="post-content"><div>
-        <h1 id="ctf-challenge-solved"><a href="https://en.wikipedia.org/wiki/Capture_the_flag_%28cybersecurity%29">CTF</a> challenge solved.<a href="#ctf-challenge-solved" class="hanchor" ariaLabel="Anchor">#</a> </h1>
-<h1 id="silver-platter---tryhackme">Silver Platter - TryHackMe<a href="#silver-platter---tryhackme" class="hanchor" ariaLabel="Anchor">#</a> </h1>
-<p>24-03-2025</p>
+        <h1 id="silver-platter---tryhackme">Silver Platter - TryHackMe<a href="#silver-platter---tryhackme" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p><code>24-03-2025</code></p>
+<p><a href="https://en.wikipedia.org/wiki/Capture_the_flag_%28cybersecurity%29">CTF</a> challenge solved.</p>
 <h2 id="starting-with-nmap">Starting with nmap<a href="#starting-with-nmap" class="hanchor" ariaLabel="Anchor">#</a> </h2>
 <ul>
 <li>Scanning the target to identify open ports</li>
@@ -362,7 +364,7 @@ Task Completed
 <li>CVE-2023-47326</li>
 <li>CVE-2023-47327</li>
 </ul>
-<h2 id="this-one-seems-interesting-cve-2023-323">This one seems interesting: CVE-2023-323.<a href="#this-one-seems-interesting-cve-2023-323" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<h2 id="this-one-seems-interesting-cve-2023-47323">This one seems interesting: CVE-2023-47323.<a href="#this-one-seems-interesting-cve-2023-47323" class="hanchor" ariaLabel="Anchor">#</a> </h2>
 <ul>
 <li>Broken access control allows attackers to read all messages.</li>
 </ul>
@@ -386,7 +388,7 @@ Password: cm0nt!md0ntf0rg3tth!spa$$w0rdagainlol
 <h4 id="using-the-ssh-credential">using the SSH credential:<a href="#using-the-ssh-credential" class="hanchor" ariaLabel="Anchor">#</a> </h4>
 <ul>
 <li>tim</li>
-<li>c4ca4238a0b923820dcc509a6f75849b</li>
+<li>cm0nt!md0ntf0rg3tth!spa$$w0rdagainlol</li>
 </ul>
 <p><code>ssh tim@10.10.126.96</code></p>
 <p>After logging in, we got the user flag.</p>
@@ -429,7 +431,7 @@ User tyler may run the following commands on silver-platter:
   </div>
   <div class="pagination__buttons">
     
-      <a href="//localhost:1313/posts/blogsetup/" class="button inline prev">
+      <a href="//localhost:1313/posts/ctf/thm/0day/" class="button inline prev">
         &lt; [<span class="button__text"></span>]
       </a>
     

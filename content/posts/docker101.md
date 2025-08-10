@@ -7,7 +7,7 @@
 
 `sudo apt update && sudo install docker.io -y`
 
-### Then install an linux image by using this command: ( [Search More Images](hub.docker.com) )
+### Then install an linux image by using this command: ( [Search More Images](https://hub.docker.com) )
 
 `sudo docker pull ubuntu:latest`
 

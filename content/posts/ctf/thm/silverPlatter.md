@@ -1,8 +1,10 @@
-# [CTF](https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)) challenge solved.
 
 # Silver Platter - TryHackMe
 
-24-03-2025
+`24-03-2025`
+
+[CTF](https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)) challenge solved.
+
 
 ## Starting with nmap 
 - Scanning the target to identify open ports

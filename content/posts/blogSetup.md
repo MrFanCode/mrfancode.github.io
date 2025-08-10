@@ -1,10 +1,9 @@
 
+# Blog Setup with hugo in Ubuntu (Linux)
+
 `23-03-2025`
 
 
-
-
-# Blog Setup with hugo in Ubuntu (Linux)
 ### From Mark Down (.md) file into website
 
 

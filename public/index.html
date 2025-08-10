@@ -190,8 +190,8 @@
 
         <div class="post-content">
           
-            <p><code>23-03-2025</code></p>
-<h1 id="blog-setup-with-hugo-in-ubuntu-linux">Blog Setup with hugo in Ubuntu (Linux)</h1>
+            <h1 id="blog-setup-with-hugo-in-ubuntu-linux">Blog Setup with hugo in Ubuntu (Linux)</h1>
+<p><code>23-03-2025</code></p>
 <h3 id="from-mark-down-md-file-into-website">From Mark Down (.md) file into website</h3>
 <h3 id="required-to-be-installed">Required to be installed</h3>
 <ul>
@@ -221,6 +221,76 @@
     
       <article class="post on-list">
         <h2 class="post-title">
+          <a href="//localhost:1313/posts/ctf/thm/0day/"></a>
+        </h2>
+
+        <div class="post-meta"></div>
+
+        
+
+        
+
+
+        <div class="post-content">
+          
+            <h1 id="0day---tryhackme"><a href="https://tryhackme.com/room/0day">0day</a> - TryHackMe</h1>
+<p><code>07-08-2025</code></p>
+<p><a href="https://en.wikipedia.org/wiki/Capture_the_flag_%28cybersecurity%29">CTF</a> challenge solved.</p>
+<h2 id="starting-with-rustscan--nmap">Starting with rustscan &amp; nmap</h2>
+<ul>
+<li>Scanning the target to identify open ports</li>
+</ul>
+<pre tabindex="0"><code>$rustscan -a `cat ip.txt`
+</code></pre><pre tabindex="0"><code>
+PORT   STATE SERVICE REASON
+22/tcp open  ssh     syn-ack
+80/tcp open  http    syn-ack
+</code></pre><ul>
+<li>We have port 22/tcp and 80/tcp open.</li>
+</ul>
+<h2 id="scanning-more-in-depth-on-the-target">Scanning more in-depth on the target</h2>
+<p><code>$nmap -sVC -T5 -Pn -oN nmap/deep -p22,80 10.201.64.14</code></p>
+<pre tabindex="0"><code>Nmap scan report for 10.201.64.14
+Host is up (0.31s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   1024 57:20:82:3c:62:aa:8f:42:23:c0:b8:93:99:6f:49:9c (DSA)
+|   2048 4c:40:db:32:64:0d:11:0c:ef:4f:b8:5b:73:9b:c7:6b (RSA)
+|   256 f7:6f:78:d5:83:52:a6:4d:da:21:3c:55:47:b7:2d:6d (ECDSA)
+|_  256 a5:b4:f0:84:b6:a7:8d:eb:0a:9d:3e:74:37:33:65:16 (ED25519)
+80/tcp open  http    Apache httpd 2.4.7 ((Ubuntu))
+|_http-server-header: Apache/2.4.7 (Ubuntu)
+|_http-title: 0day
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre><h2 id="exploring-the-website-on-port-80tcp-http">Exploring the website on port 80/tcp (http)</h2>
+<ul>
+<li>pages on the site (sitemap):</li>
+</ul>
+<pre tabindex="0"><code>
+200 -    0B  - /admin/
+200 -    0B  - /admin/index.html
+200 -    1KB - /backup/
+403 -  287B  - /cgi-bin/
+200 -   13B  - /cgi-bin/test.cgi
+200 -  452B  - /js/
+200 -   38B  - /robots.txt
+200 -   97B  - /secret/
+200 -    0B  - /uploads/
+</code></pre><p>Found an SSH private key in <code>/backup</code>, and the password for the private key was cracked using ssh2john, John the Ripper, and the rockyou.txt wordlist. Password: <code>letmein</code>, but no valid user was found to log in with this id_rsa private key, so moving on to analyze the <code>cgi-bin/test.cgi</code> and test shellshock exploits.</p>
+          
+        </div>
+
+        
+          <div>
+            <a class="read-more button inline" href="/posts/ctf/thm/0day/">[Read more]</a>
+          </div>
+        
+      </article>
+    
+      <article class="post on-list">
+        <h2 class="post-title">
           <a href="//localhost:1313/posts/ctf/thm/silverplatter/"></a>
         </h2>
 
@@ -233,9 +303,9 @@
 
         <div class="post-content">
           
-            <h1 id="ctf-challenge-solved"><a href="https://en.wikipedia.org/wiki/Capture_the_flag_%28cybersecurity%29">CTF</a> challenge solved.</h1>
-<h1 id="silver-platter---tryhackme">Silver Platter - TryHackMe</h1>
-<p>24-03-2025</p>
+            <h1 id="silver-platter---tryhackme">Silver Platter - TryHackMe</h1>
+<p><code>24-03-2025</code></p>
+<p><a href="https://en.wikipedia.org/wiki/Capture_the_flag_%28cybersecurity%29">CTF</a> challenge solved.</p>
 <h2 id="starting-with-nmap">Starting with nmap</h2>
 <ul>
 <li>Scanning the target to identify open ports</li>
@@ -285,7 +355,7 @@ PORT     STATE SERVICE
 <p><code>24-03-2025</code></p>
 <h2 id="install-docker-on-your-linux--for-windows-users-can-follow-along-with-wsl-windows-subsystem-for-linux-">Install docker on your linux ( For windows users can follow along with WSL (Windows Subsystem for Linux). )</h2>
 <p><code>sudo apt update &amp;&amp; sudo install docker.io -y</code></p>
-<h3 id="then-install-an-linux-image-by-using-this-command--search-more-images-">Then install an linux image by using this command: ( <a href="hub.docker.com">Search More Images</a> )</h3>
+<h3 id="then-install-an-linux-image-by-using-this-command--search-more-images-">Then install an linux image by using this command: ( <a href="https://hub.docker.com">Search More Images</a> )</h3>
 <p><code>sudo docker pull ubuntu:latest</code></p>
 <ul>
 <li>make sure use the &lsquo;:latest&rsquo; in the end of image name so you get the latest version</li>

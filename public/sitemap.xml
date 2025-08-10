@@ -6,6 +6,8 @@
   </url><url>
     <loc>//localhost:1313/posts/blogsetup/</loc>
   </url><url>
+    <loc>//localhost:1313/posts/ctf/thm/0day/</loc>
+  </url><url>
     <loc>//localhost:1313/posts/ctf/thm/silverplatter/</loc>
   </url><url>
     <loc>//localhost:1313/posts/docker101/</loc>
