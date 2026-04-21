@@ -214,21 +214,57 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentY = mouseY;
 
   
+  let eyeOffsetX = 0;
+  let eyeOffsetY = 0;
+
+  
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
     
+    
+    const rect = robot.getBoundingClientRect();
+    const robotCenterX = rect.left + rect.width / 2;
+    const robotCenterY = rect.top + rect.height / 2;
+
+    
+    const dx = mouseX - robotCenterX;
+    const dy = mouseY - robotCenterY;
+    const angle = Math.atan2(dy, dx);
+    
+    
+    const distance = Math.min(Math.hypot(dx, dy) / 30, 4); 
+
+    
+    eyeOffsetX = Math.cos(angle) * distance;
+    eyeOffsetY = Math.sin(angle) * distance;
+
+    
+    if (!isBlinking) {
+      updateEyePositions();
+    }
+
     
     const speed = Math.hypot(e.movementX, e.movementY);
     if (speed > 15) {
       eyeLeft.setAttribute('ry', '10');
       eyeRight.setAttribute('ry', '10');
       setTimeout(() => {
-        eyeLeft.setAttribute('ry', '9');
-        eyeRight.setAttribute('ry', '9');
+        if (!isBlinking) {
+          eyeLeft.setAttribute('ry', '9');
+          eyeRight.setAttribute('ry', '9');
+        }
       }, 200);
     }
   });
+
+  function updateEyePositions() {
+    
+    eyeLeft.setAttribute('cx', 30 + eyeOffsetX);
+    eyeLeft.setAttribute('cy', 38 + eyeOffsetY);
+    eyeRight.setAttribute('cx', 50 + eyeOffsetX);
+    eyeRight.setAttribute('cy', 38 + eyeOffsetY);
+  }
 
   function animate() {
     
@@ -244,7 +280,11 @@ document.addEventListener('DOMContentLoaded', () => {
   animate();
 
   
+  let isBlinking = false;
+  
   function blink() {
+    isBlinking = true;
+    
     
     eyeLeft.setAttribute('ry', '0.5');
     eyeLeft.setAttribute('rx', '5');
@@ -257,6 +297,13 @@ document.addEventListener('DOMContentLoaded', () => {
       eyeLeft.setAttribute('rx', '3.5');
       eyeRight.setAttribute('ry', '9');
       eyeRight.setAttribute('rx', '3.5');
+      
+      
+      eyeOffsetX = 0;
+      eyeOffsetY = 0;
+      updateEyePositions();
+      
+      isBlinking = false;
     }, 150);
 
     
@@ -268,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function startTalking() {
     mouth.style.opacity = '1';
     const interval = setInterval(() => {
-      const h = Math.random() * 6 + 2; 
+      const h = Math.random() * 6 + 2;
       mouth.setAttribute('height', h);
     }, 100);
     

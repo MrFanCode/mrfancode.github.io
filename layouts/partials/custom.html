@@ -1,4 +1,4 @@
-<!-- Compact Neon Robot (80x80px) -->
+<!-- Compact Neon Robot with Eye Tracking (80x80px) -->
 <div id="robot-cursor" style="position: fixed; z-index: 9999; pointer-events: none; left: 50%; top: 50%; transform: translate(-50%, -50%);">
   <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
     
@@ -46,25 +46,61 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentX = mouseX;
   let currentY = mouseY;
 
-  // 1. Smooth Follow Logic
+  // Eye tracking state
+  let eyeOffsetX = 0;
+  let eyeOffsetY = 0;
+
+  // 1. Track Mouse & Calculate Eye Direction
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
     
+    // Get robot center position
+    const rect = robot.getBoundingClientRect();
+    const robotCenterX = rect.left + rect.width / 2;
+    const robotCenterY = rect.top + rect.height / 2;
+
+    // Calculate angle from robot to mouse
+    const dx = mouseX - robotCenterX;
+    const dy = mouseY - robotCenterY;
+    const angle = Math.atan2(dy, dx);
+    
+    // Calculate distance (limit how far eyes can move)
+    const distance = Math.min(Math.hypot(dx, dy) / 30, 4); // Max 4px movement
+
+    // Calculate eye offset
+    eyeOffsetX = Math.cos(angle) * distance;
+    eyeOffsetY = Math.sin(angle) * distance;
+
+    // Apply eye tracking (only when not blinking)
+    if (!isBlinking) {
+      updateEyePositions();
+    }
+
     // Optional: Make eyes "shock" on fast movement
     const speed = Math.hypot(e.movementX, e.movementY);
     if (speed > 15) {
       eyeLeft.setAttribute('ry', '10');
       eyeRight.setAttribute('ry', '10');
       setTimeout(() => {
-        eyeLeft.setAttribute('ry', '9');
-        eyeRight.setAttribute('ry', '9');
+        if (!isBlinking) {
+          eyeLeft.setAttribute('ry', '9');
+          eyeRight.setAttribute('ry', '9');
+        }
       }, 200);
     }
   });
 
+  function updateEyePositions() {
+    // Move both eyes together to look at cursor
+    eyeLeft.setAttribute('cx', 30 + eyeOffsetX);
+    eyeLeft.setAttribute('cy', 38 + eyeOffsetY);
+    eyeRight.setAttribute('cx', 50 + eyeOffsetX);
+    eyeRight.setAttribute('cy', 38 + eyeOffsetY);
+  }
+
   function animate() {
-    // Lerp for smooth movement
+    // Lerp for smooth robot movement
     currentX += (mouseX - currentX) * 0.1;
     currentY += (mouseY - currentY) * 0.1;
     
@@ -77,7 +113,11 @@ document.addEventListener('DOMContentLoaded', () => {
   animate();
 
   // 2. Blinking Logic (Shape Morph)
+  let isBlinking = false;
+  
   function blink() {
+    isBlinking = true;
+    
     // Close: Flatten the ellipse
     eyeLeft.setAttribute('ry', '0.5');
     eyeLeft.setAttribute('rx', '5');
@@ -90,6 +130,13 @@ document.addEventListener('DOMContentLoaded', () => {
       eyeLeft.setAttribute('rx', '3.5');
       eyeRight.setAttribute('ry', '9');
       eyeRight.setAttribute('rx', '3.5');
+      
+      // Reset eye position after blink
+      eyeOffsetX = 0;
+      eyeOffsetY = 0;
+      updateEyePositions();
+      
+      isBlinking = false;
     }, 150);
 
     // Next blink
@@ -101,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function startTalking() {
     mouth.style.opacity = '1';
     const interval = setInterval(() => {
-      const h = Math.random() * 6 + 2; // Smaller height range for compact size
+      const h = Math.random() * 6 + 2;
       mouth.setAttribute('height', h);
     }, 100);
     
