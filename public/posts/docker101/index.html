@@ -1,64 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   
     <title> :: MrFCode Blog</title>
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="How to run Linux using Docker 24-03-2025
-Install docker on your linux ( For windows users can follow along with WSL (Windows Subsystem for Linux). ) sudo apt update &amp;&amp; sudo install docker.io -y
+Install docker on your linux ( For windows users can follow along with WSL (Windows Subsystem for Linux). ) sudo apt update &amp;amp;&amp;amp; sudo install docker.io -y
 Then install an linux image by using this command: ( Search More Images ) sudo docker pull ubuntu:latest
-make sure use the &lsquo;:latest&rsquo; in the end of image name so you get the latest version then just wait for the installation to finish. After installed the image try to confirm if the image is there in your system: sudo docker images
-" />
+ make sure use the &amp;lsquo;:latest&amp;rsquo; in the end of image name so you get the latest version then just wait for the installation to finish." />
 <meta name="keywords" content="" />
 
   <meta name="robots" content="noodp" />
 
-<link rel="canonical" href="//localhost:1313/posts/docker101/" />
+<link rel="canonical" href="/posts/docker101/" />
 
 
 
 
 
   
-  <link rel="stylesheet" href="//localhost:1313/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
+  <link rel="stylesheet" href="/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
 
   
-  <link rel="stylesheet" href="//localhost:1313/css/code.min.d529ea4b2fb8d34328d7d31afc5466d5f7bc2f0bc9abdd98b69385335d7baee4.css">
+  <link rel="stylesheet" href="/css/code.min.d529ea4b2fb8d34328d7d31afc5466d5f7bc2f0bc9abdd98b69385335d7baee4.css">
 
   
-  <link rel="stylesheet" href="//localhost:1313/css/fonts.min.5bb7ed13e1d00d8ff39ea84af26737007eb5051b157b86fc24487c94f3dc8bbe.css">
+  <link rel="stylesheet" href="/css/fonts.min.5bb7ed13e1d00d8ff39ea84af26737007eb5051b157b86fc24487c94f3dc8bbe.css">
 
   
-  <link rel="stylesheet" href="//localhost:1313/css/footer.min.eb8dfc2c6a7eafa36cd3ba92d63e69e849e2200e0002a228d137f236b09ecd75.css">
+  <link rel="stylesheet" href="/css/footer.min.eb8dfc2c6a7eafa36cd3ba92d63e69e849e2200e0002a228d137f236b09ecd75.css">
 
   
-  <link rel="stylesheet" href="//localhost:1313/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+  <link rel="stylesheet" href="/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
 
   
-  <link rel="stylesheet" href="//localhost:1313/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css">
+  <link rel="stylesheet" href="/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css">
 
   
-  <link rel="stylesheet" href="//localhost:1313/css/main.min.775ac2af004d44c22a6d000fbd1d9af529642f5cef27399d0280d180af2c2e9b.css">
+  <link rel="stylesheet" href="/css/main.min.36833afd348409fc6c3d09d0897c5833d9d5bf1ff31f5e60ea3ee42ce2b1268c.css">
 
   
-  <link rel="stylesheet" href="//localhost:1313/css/menu.min.310d32205bdedd6f43144e3c3273c9deecd238eba5f9108db5ea96ca0cfbe377.css">
+  <link rel="stylesheet" href="/css/menu.min.3c17467ebeb3d38663dce68f71f519901124fa5cbb4519b2fb0667a21e9aca39.css">
 
   
-  <link rel="stylesheet" href="//localhost:1313/css/pagination.min.bbb986dbce00a5ce5aca0504b7925fc1c581992a4bf57f163e5d69cc1db7d836.css">
+  <link rel="stylesheet" href="/css/pagination.min.bbb986dbce00a5ce5aca0504b7925fc1c581992a4bf57f163e5d69cc1db7d836.css">
 
   
-  <link rel="stylesheet" href="//localhost:1313/css/post.min.ad50c7f4d00e7975918f37fc74c6029e1959a40d66fb5b2c6564a8715e985573.css">
+  <link rel="stylesheet" href="/css/post.min.e6dddd258e64c83e05cec0cd49c05216742d42fc8ecbfbe6b67083412b609bd3.css">
 
   
-  <link rel="stylesheet" href="//localhost:1313/css/syntax.min.e9ab635cf918bc84b901eb65c0b2caa74c9544245e3647c1af5c129896ef276e.css">
+  <link rel="stylesheet" href="/css/syntax.min.a0773cce9310cb6d8ed23e50f005448facf29a53001b57e038828daa466b25c0.css">
 
   
-  <link rel="stylesheet" href="//localhost:1313/css/terminal.min.a0f34322ce6c615465a3a289723955f810b25fff2337dbefbe9003084ad43106.css">
+  <link rel="stylesheet" href="/css/terminal.min.1e13462d8ceb20ed877bf415ffdd55caddb9852b1423b3419ac82080527cc8aa.css">
 
   
-  <link rel="stylesheet" href="//localhost:1313/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+  <link rel="stylesheet" href="/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
 
 
 
@@ -66,8 +65,8 @@ make sure use the &lsquo;:latest&rsquo; in the end of image name so you get the 
 
 
 
-<link rel="shortcut icon" href="//localhost:1313/favicon.png">
-<link rel="apple-touch-icon" href="//localhost:1313/apple-touch-icon.png">
+<link rel="shortcut icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 
 <meta name="twitter:card" content="summary" />
@@ -83,14 +82,13 @@ make sure use the &lsquo;:latest&rsquo; in the end of image name so you get the 
 <meta property="og:type" content="article" />
 <meta property="og:title" content="">
 <meta property="og:description" content="How to run Linux using Docker 24-03-2025
-Install docker on your linux ( For windows users can follow along with WSL (Windows Subsystem for Linux). ) sudo apt update &amp;&amp; sudo install docker.io -y
+Install docker on your linux ( For windows users can follow along with WSL (Windows Subsystem for Linux). ) sudo apt update &amp;amp;&amp;amp; sudo install docker.io -y
 Then install an linux image by using this command: ( Search More Images ) sudo docker pull ubuntu:latest
-make sure use the &lsquo;:latest&rsquo; in the end of image name so you get the latest version then just wait for the installation to finish. After installed the image try to confirm if the image is there in your system: sudo docker images
-" />
-<meta property="og:url" content="//localhost:1313/posts/docker101/" />
+ make sure use the &amp;lsquo;:latest&amp;rsquo; in the end of image name so you get the latest version then just wait for the installation to finish." />
+<meta property="og:url" content="/posts/docker101/" />
 <meta property="og:site_name" content="MrFCode Blog" />
 
-  <meta property="og:image" content="//localhost:1313/og-image.png">
+  <meta property="og:image" content="/og-image.png">
 
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="627">
@@ -167,11 +165,131 @@ make sure use the &lsquo;:latest&rsquo; in the end of image name so you get the 
 </header>
 
 
+  
+<div id="robot-cursor" style="position: fixed; z-index: 9999; pointer-events: none; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+  <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+    
+    
+    <circle cx="40" cy="40" r="38" fill="rgba(57, 255, 20, 0.1)" filter="blur(8px)" />
+
+    
+    <rect x="15" y="15" width="50" height="50" rx="12" fill="#1a1a1a" stroke="#39ff14" stroke-width="2.5" />
+    
+    
+    <line x1="40" y1="15" x2="40" y2="5" stroke="#2d2d2d" stroke-width="2" />
+    <circle cx="40" cy="5" r="3.5" fill="#ff0055">
+      <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite" />
+    </circle>
+
+    
+    
+    <ellipse id="eye-left" cx="30" cy="38" rx="3.5" ry="9" fill="#ffffff" filter="drop-shadow(0 0 4px #39ff14) drop-shadow(0 0 8px #39ff14)" />
+    
+    
+    <ellipse id="eye-right" cx="50" cy="38" rx="3.5" ry="9" fill="#ffffff" filter="drop-shadow(0 0 4px #39ff14) drop-shadow(0 0 8px #39ff14)" />
+
+    
+    <rect id="mouth" x="28" y="52" width="24" height="3" rx="1.5" fill="#39ff14" opacity="0" />
+    
+    
+    <line x1="15" y1="15" x2="65" y2="15" stroke="rgba(57, 255, 20, 0.2)" stroke-width="1.5">
+      <animate attributeName="y1" from="15" to="65" dur="2s" repeatCount="indefinite" />
+      <animate attributeName="y2" from="15" to="65" dur="2s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" />
+    </line>
+  </svg>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const robot = document.getElementById('robot-cursor');
+  const eyeLeft = document.getElementById('eye-left');
+  const eyeRight = document.getElementById('eye-right');
+  const mouth = document.getElementById('mouth');
+
+  
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let currentX = mouseX;
+  let currentY = mouseY;
+
+  
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    
+    const speed = Math.hypot(e.movementX, e.movementY);
+    if (speed > 15) {
+      eyeLeft.setAttribute('ry', '10');
+      eyeRight.setAttribute('ry', '10');
+      setTimeout(() => {
+        eyeLeft.setAttribute('ry', '9');
+        eyeRight.setAttribute('ry', '9');
+      }, 200);
+    }
+  });
+
+  function animate() {
+    
+    currentX += (mouseX - currentX) * 0.1;
+    currentY += (mouseY - currentY) * 0.1;
+    
+    
+    robot.style.left = `${currentX}px`;
+    robot.style.top = `${currentY - 40}px`; 
+    
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  
+  function blink() {
+    
+    eyeLeft.setAttribute('ry', '0.5');
+    eyeLeft.setAttribute('rx', '5');
+    eyeRight.setAttribute('ry', '0.5');
+    eyeRight.setAttribute('rx', '5');
+
+    
+    setTimeout(() => {
+      eyeLeft.setAttribute('ry', '9');
+      eyeLeft.setAttribute('rx', '3.5');
+      eyeRight.setAttribute('ry', '9');
+      eyeRight.setAttribute('rx', '3.5');
+    }, 150);
+
+    
+    setTimeout(blink, Math.random() * 3000 + 2000);
+  }
+  blink();
+
+  
+  function startTalking() {
+    mouth.style.opacity = '1';
+    const interval = setInterval(() => {
+      const h = Math.random() * 6 + 2; 
+      mouth.setAttribute('height', h);
+    }, 100);
+    
+    setTimeout(() => {
+      clearInterval(interval);
+      mouth.setAttribute('height', 3);
+      mouth.style.opacity = '0';
+    }, 1500);
+  }
+
+  window.addEventListener('scroll', startTalking);
+  document.addEventListener('click', startTalking);
+});
+</script>
+
+
   <div class="content">
     
 <article class="post">
   <h1 class="post-title">
-    <a href="//localhost:1313/posts/docker101/"></a>
+    <a href="/posts/docker101/"></a>
   </h1>
   <div class="post-meta"></div>
 
@@ -186,7 +304,7 @@ make sure use the &lsquo;:latest&rsquo; in the end of image name so you get the 
 <p><code>24-03-2025</code></p>
 <h2 id="install-docker-on-your-linux--for-windows-users-can-follow-along-with-wsl-windows-subsystem-for-linux-">Install docker on your linux ( For windows users can follow along with WSL (Windows Subsystem for Linux). )<a href="#install-docker-on-your-linux--for-windows-users-can-follow-along-with-wsl-windows-subsystem-for-linux-" class="hanchor" ariaLabel="Anchor">#</a> </h2>
 <p><code>sudo apt update &amp;&amp; sudo install docker.io -y</code></p>
-<h3 id="then-install-an-linux-image-by-using-this-command--search-more-images-">Then install an linux image by using this command: ( <a href="https://hub.docker.com">Search More Images</a> )<a href="#then-install-an-linux-image-by-using-this-command--search-more-images-" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<h3 id="then-install-an-linux-image-by-using-this-command--search-more-imageshttpshubdockercom-">Then install an linux image by using this command: ( <a href="https://hub.docker.com">Search More Images</a> )<a href="#then-install-an-linux-image-by-using-this-command--search-more-imageshttpshubdockercom-" class="hanchor" ariaLabel="Anchor">#</a> </h3>
 <p><code>sudo docker pull ubuntu:latest</code></p>
 <ul>
 <li>make sure use the &lsquo;:latest&rsquo; in the end of image name so you get the latest version</li>
@@ -223,7 +341,7 @@ make sure use the &lsquo;:latest&rsquo; in the end of image name so you get the 
   </div>
   <div class="pagination__buttons">
     
-      <a href="//localhost:1313/posts/ctf/thm/silverplatter/" class="button inline prev">
+      <a href="/posts/ctf/thm/silverplatter/" class="button inline prev">
         &lt; [<span class="button__text"></span>]
       </a>
     
@@ -248,7 +366,7 @@ make sure use the &lsquo;:latest&rsquo; in the end of image name so you get the 
   <div class="footer__inner">
     
       <div class="copyright">
-        <span>© 2025 Powered by <a href="https://gohugo.io">Hugo</a></span>
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
     
       <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
       </div>

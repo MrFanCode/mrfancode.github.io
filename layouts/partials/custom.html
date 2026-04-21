@@ -1,0 +1,118 @@
+<!-- Compact Neon Robot (80x80px) -->
+<div id="robot-cursor" style="position: fixed; z-index: 9999; pointer-events: none; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+  <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+    
+    <!-- 1. Subtle Glow Background -->
+    <circle cx="40" cy="40" r="38" fill="rgba(57, 255, 20, 0.1)" filter="blur(8px)" />
+
+    <!-- 2. The Head Frame (Compact) -->
+    <rect x="15" y="15" width="50" height="50" rx="12" fill="#1a1a1a" stroke="#39ff14" stroke-width="2.5" />
+    
+    <!-- 3. The Antenna (Scaled Down) -->
+    <line x1="40" y1="15" x2="40" y2="5" stroke="#2d2d2d" stroke-width="2" />
+    <circle cx="40" cy="5" r="3.5" fill="#ff0055">
+      <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite" />
+    </circle>
+
+    <!-- 4. The Eyes (Bright White, Compact) -->
+    <!-- Left Eye: Tall Oval (Open) -->
+    <ellipse id="eye-left" cx="30" cy="38" rx="3.5" ry="9" fill="#ffffff" filter="drop-shadow(0 0 4px #39ff14) drop-shadow(0 0 8px #39ff14)" />
+    
+    <!-- Right Eye: Tall Oval (Open) -->
+    <ellipse id="eye-right" cx="50" cy="38" rx="3.5" ry="9" fill="#ffffff" filter="drop-shadow(0 0 4px #39ff14) drop-shadow(0 0 8px #39ff14)" />
+
+    <!-- 5. The Mouth (Small Bar) -->
+    <rect id="mouth" x="28" y="52" width="24" height="3" rx="1.5" fill="#39ff14" opacity="0" />
+    
+    <!-- 6. Scan Line (Subtle) -->
+    <line x1="15" y1="15" x2="65" y2="15" stroke="rgba(57, 255, 20, 0.2)" stroke-width="1.5">
+      <animate attributeName="y1" from="15" to="65" dur="2s" repeatCount="indefinite" />
+      <animate attributeName="y2" from="15" to="65" dur="2s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" />
+    </line>
+  </svg>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const robot = document.getElementById('robot-cursor');
+  const eyeLeft = document.getElementById('eye-left');
+  const eyeRight = document.getElementById('eye-right');
+  const mouth = document.getElementById('mouth');
+
+  // Position variables
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let currentX = mouseX;
+  let currentY = mouseY;
+
+  // 1. Smooth Follow Logic
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    // Optional: Make eyes "shock" on fast movement
+    const speed = Math.hypot(e.movementX, e.movementY);
+    if (speed > 15) {
+      eyeLeft.setAttribute('ry', '10');
+      eyeRight.setAttribute('ry', '10');
+      setTimeout(() => {
+        eyeLeft.setAttribute('ry', '9');
+        eyeRight.setAttribute('ry', '9');
+      }, 200);
+    }
+  });
+
+  function animate() {
+    // Lerp for smooth movement
+    currentX += (mouseX - currentX) * 0.1;
+    currentY += (mouseY - currentY) * 0.1;
+    
+    // Move the DIV
+    robot.style.left = `${currentX}px`;
+    robot.style.top = `${currentY - 40}px`; // Offset up (half of 80px height)
+    
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  // 2. Blinking Logic (Shape Morph)
+  function blink() {
+    // Close: Flatten the ellipse
+    eyeLeft.setAttribute('ry', '0.5');
+    eyeLeft.setAttribute('rx', '5');
+    eyeRight.setAttribute('ry', '0.5');
+    eyeRight.setAttribute('rx', '5');
+
+    // Open: Return to tall oval
+    setTimeout(() => {
+      eyeLeft.setAttribute('ry', '9');
+      eyeLeft.setAttribute('rx', '3.5');
+      eyeRight.setAttribute('ry', '9');
+      eyeRight.setAttribute('rx', '3.5');
+    }, 150);
+
+    // Next blink
+    setTimeout(blink, Math.random() * 3000 + 2000);
+  }
+  blink();
+
+  // 3. Talking Logic (Mouth)
+  function startTalking() {
+    mouth.style.opacity = '1';
+    const interval = setInterval(() => {
+      const h = Math.random() * 6 + 2; // Smaller height range for compact size
+      mouth.setAttribute('height', h);
+    }, 100);
+    
+    setTimeout(() => {
+      clearInterval(interval);
+      mouth.setAttribute('height', 3);
+      mouth.style.opacity = '0';
+    }, 1500);
+  }
+
+  window.addEventListener('scroll', startTalking);
+  document.addEventListener('click', startTalking);
+});
+</script>

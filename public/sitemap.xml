@@ -2,22 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:1313/about/</loc>
+    <loc>/about/</loc>
+    <priority>0</priority>
   </url><url>
-    <loc>//localhost:1313/posts/blogsetup/</loc>
+    <loc>/posts/blogsetup/</loc>
   </url><url>
-    <loc>//localhost:1313/posts/ctf/thm/0day/</loc>
+    <loc>/posts/ctf/thm/0day/</loc>
   </url><url>
-    <loc>//localhost:1313/posts/ctf/thm/silverplatter/</loc>
+    <loc>/posts/ctf/thm/silverplatter/</loc>
   </url><url>
-    <loc>//localhost:1313/posts/docker101/</loc>
+    <loc>/posts/docker101/</loc>
   </url><url>
-    <loc>//localhost:1313/categories/</loc>
+    <loc>/categories/</loc>
   </url><url>
-    <loc>//localhost:1313/</loc>
+    <loc>/</loc>
   </url><url>
-    <loc>//localhost:1313/posts/</loc>
+    <loc>/posts/</loc>
   </url><url>
-    <loc>//localhost:1313/tags/</loc>
+    <loc>/tags/</loc>
   </url>
 </urlset>
